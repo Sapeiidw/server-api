@@ -32,3 +32,7 @@
         </div>
     </nav>
 </aside>
+
+<script>
+    let btn = document.querySelector()
+</script>
