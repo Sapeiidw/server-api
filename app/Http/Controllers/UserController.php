@@ -32,7 +32,7 @@ class UserController extends Controller
         ->log(':causer.name visited user page.');
         $users = User::with('roles')
                 ->where('name','like',"%{$request->search}%")
-                ->paginate(15);
+                ->paginate(20);
         return view('pages.user.index', compact('users'));
     }
 

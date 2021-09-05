@@ -26,7 +26,7 @@ class PermissionController extends Controller
         ->performedOn(new Permission())
         ->causedBy(auth()->user())
         ->log(':causer.name visited permission page.');
-        $permissions = Permission::where('name','like',"%{$request->search}%")->paginate(15);
+        $permissions = Permission::where('name','like',"%{$request->search}%")->paginate(20);
         return view('pages.permission.index', compact('permissions'));
     }
 
@@ -95,7 +95,7 @@ class PermissionController extends Controller
         $permission->update([
             'name' => $request->name,
         ]);
-     
+
        return back()->with('success','Permission was Updated!!');
 
     }

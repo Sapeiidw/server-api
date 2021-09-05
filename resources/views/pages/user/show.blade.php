@@ -54,7 +54,7 @@
                             </x-tr>
                         </thead>
                         <tbody>
-                            
+
                             <x-tr>
                                 <x-td>
                                     <div class="flex items-center">
@@ -101,12 +101,12 @@
                     </table>
                     <div class="px-5 py-5 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
                     </div>
-                
+
             </div>
         </x-boxtable>
     @forelse ( $activity as $item )
     <div>
-    {{-- {{ $item }} --}}
+    {{ $item }}
         {{ $item->log_name }}
         {{ $item->description }}
         {{ $item->causer->name }}
@@ -117,5 +117,5 @@
     @endforelse
 
     </div>
-    
+
 </x-admin-layout>

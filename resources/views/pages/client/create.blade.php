@@ -1,4 +1,5 @@
 <x-admin-layout>
+    @section('title', 'Create Client')
     <div class="w-4/5">
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -33,9 +34,11 @@
                             <span class="text-red-900 p-2">{{ $message }}</span>
                         @enderror
                     </div>
-                    <input type="radio" name="visibility" id="public" value="public">public
-                    <input type="radio" name="visibility" id="public" value="private">private
-                    <input type="file" name="thumbnail" id="">
+                    <div class="mt-4">
+                        <input type="radio" name="visibility" id="public" value="public"> public
+                        <input type="radio" name="visibility" id="public" value="private"> private
+                        <input type="file" name="thumbnail" id="">
+                    </div>
                     <div class="flex items-center justify-end mt-4">
                         <x-jet-button class="modal-open ml-4" type="submit">
                             {{ __('Create') }}
