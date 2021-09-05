@@ -56,7 +56,7 @@ class ClientController extends Controller
             'redirect' => 'required|url|string|unique:oauth_clients,redirect',
             'url' => 'required|url|string|unique:oauth_clients,url',
             'thumbnail' => 'nullable|mimes:jpg,bmp,png|max:1024',
-            'visibility' => 'nullable|string',
+            'visibility' => 'required|string',
         ]);
         $thumbnail = request('thumbnail') ? request()->file('thumbnail')->store('images/client') : null;
         Client::create([
@@ -113,7 +113,7 @@ class ClientController extends Controller
             'redirect' => 'required|string|url|unique:oauth_clients,redirect,'.$client->id,
             'url' => 'required|string|url|unique:oauth_clients,url,'.$client->id,
             'thumbnail' => 'nullable|mimes:jpg,bmp,png|max:1024',
-            'visibility' => 'nullable|string',
+            'visibility' => 'required|string',
         ]);
 
         if (request('thumbnail')) {

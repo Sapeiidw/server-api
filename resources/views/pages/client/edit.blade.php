@@ -35,9 +35,15 @@
                             <span class="text-red-900 p-2">{{ $message }}</span>
                         @enderror
                     </div>
-                    <input type="radio" name="visibility" id="public" value="public" {{ $client->visibility == 'public' ? "checked" : '' }}>public
-                    <input type="radio" name="visibility" id="public" value="private" {{ $client->visibility == 'private' ? "checked" : '' }}>private
+                    <input type="radio" name="visibility" id="public" value="public" {{ $client->visibility == 'public' ? "checked" : '' }} required>public
+                    <input type="radio" name="visibility" id="public" value="private" {{ $client->visibility == 'private' ? "checked" : '' }} required>private
+                    @error('visibility')
+                        <span class="text-red-900 p-2">{{ $message }}</span>
+                    @enderror
                     <input type="file" name="thumbnail" id="">
+                    @error('thumbnail')
+                        <span class="text-red-900 p-2">{{ $message }}</span>
+                    @enderror
                     <x-jet-button type="submit" class="mt-4">Update</x-jet-button>
                     <x-jet-button type="reset" class="mt-4">Cancel</x-jet-button>
                 </form>

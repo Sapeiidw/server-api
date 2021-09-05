@@ -34,11 +34,15 @@
                             <span class="text-red-900 p-2">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="mt-4">
-                        <input type="radio" name="visibility" id="public" value="public"> public
-                        <input type="radio" name="visibility" id="public" value="private"> private
-                        <input type="file" name="thumbnail" id="">
-                    </div>
+                    <input type="radio" name="visibility" id="public" value="public" required>public
+                    <input type="radio" name="visibility" id="public" value="private" required>private
+                    @error('visibility')
+                        <span class="text-red-900 p-2">{{ $message }}</span>
+                    @enderror
+                    <input type="file" name="thumbnail" id="">
+                    @error('thumbnail')
+                            <span class="text-red-900 p-2">{{ $message }}</span>
+                        @enderror
                     <div class="flex items-center justify-end mt-4">
                         <x-jet-button class="modal-open ml-4" type="submit">
                             {{ __('Create') }}
