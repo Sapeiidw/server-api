@@ -12,8 +12,8 @@
             @unlessrole( $item->visibility == 'hidden' ? 'user' : '' )
             <div class="p-4 m-4 bg-white shadow rounded-xl">
                 <a href="{{ $item->url }}" class="text-center">
-                    <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="{{ $item->name }}" class="flex sm:w-56 sm:h-28 lg:w-96 lg:h-64 w-36 h-28 items-center justify-center bg-gray-100">
-                    <h1>{{ $item->name }}</h1>
+                    <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="{{ $item->name }}" class="flex sm:w-56 sm:h-28 lg:w-96 lg:h-60 w-36 h-28 items-center justify-center bg-gray-100">
+                    <h1 class="mx-2 mt-3 items-center justify-center">{{ $item->name }}</h1>
                 </a>
             </div>
             @endunlessrole

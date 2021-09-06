@@ -35,11 +35,11 @@
                                 <i class="fas fa-hashtag"></i>
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-cogs mr-1"></i>
                                 Client
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-link mr-1"></i>
                                 Link
                             </x-th>
                             <x-th>
@@ -73,7 +73,7 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex lg:flex-row flex-col sm:w-1/5 justify-between items-center ml-2">
+                                    <div class="flex lg:flex-row flex-col sm:w-1/5 md:justify-between justify-center items-center ml-2">
                                         <a href="{{ route('client.show', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye mx-2"></i>

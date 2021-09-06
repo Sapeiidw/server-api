@@ -7,7 +7,7 @@
                 {{ __('User') }}
             </h2>
         </x-slot>
-        {{-- <x-boxtable> --}}
+        <x-boxtable>
             <div>
 
             </div>
@@ -138,25 +138,23 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <div class="px-5 py-5 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
+                    <div
+                        class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                        {{ $activity->links() }}
                     </div>
                 </div>
             </div>
-        {{-- </x-boxtable> --}}
-    <div class="flex">
+            
+        </x-boxtable>
+    {{-- <div class="flex">
         @forelse ( $activity as $item )
-        <div>
+         --}}
         {{-- {{ $item }} --}}
-    
-    
-    
-    
-        </div>
-        @empty
+        {{-- @empty
             Kosong
         @endforelse
     
-        </div>
+    
         {{ $activity->links() }}
-    </div>
+    </div> --}}
 </x-admin-layout>

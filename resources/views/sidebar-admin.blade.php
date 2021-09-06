@@ -30,7 +30,7 @@
         </div>
         <div class="flex py-3 justify-between">
             <x-sidelink href="{{ route('client.index') }}" :active="request()->routeIs('client.*')">
-                <i class="fas fa-id-badge m-2"></i>
+                <i class="fas fa-cogs m-2"></i>
                 <div class="md:visible invisible">
                     {{ __('Client') }}
                 </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="flex py-3 justify-between">
             <x-sidelink href="{{ route('log.index') }}" :active="request()->routeIs('log.*')">
-                <i class="fas fa-id-badge m-2"></i>
+                <i class="fas fa-clipboard-list m-2"></i>
                 <div class="md:visible invisible">
                     {{ __('Log Activity') }}
                 </div>

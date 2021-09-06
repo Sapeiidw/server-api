@@ -8,7 +8,7 @@
     </x-slot>
     <x-boxtable>
         <div class="flex justify-between sm:flex-row flex-col py-4 px-2">
-            <div class="flex relative sm:w-3/4">
+            <div class="flex relative w-full">
                 <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                     <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
                         <path
@@ -21,10 +21,6 @@
                     class="appearance-none rounded-full border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </form>
             </div>
-            <x-jet-button>
-                <a href="{{ route('log.create') }}" >Add Log</a>
-            </x-jet-button>
-
         </div>
         <div class="mx-auto overflow-x-auto">
             <div class="inline-block border min-w-full shadow rounded-lg overflow-hidden">
@@ -35,15 +31,15 @@
                                 <i class="fas fa-hashtag"></i>
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-user mr-1"></i>
                                 Causer
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-file-alt mr-1"></i>
                                 Description
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-calendar-day mr-1"></i>
                                 Date
                             </x-th>
                             <x-th>

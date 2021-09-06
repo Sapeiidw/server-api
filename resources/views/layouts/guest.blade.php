@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class=" bg-gray-200 font-sans text-gray-900 antialiased ">
+        <div class=" bg-gray-200 font-sans text-gray-900 antialiased dark:bg-gray-800 dark:text-white">
             {{ $slot }}
         </div>
     </body>
