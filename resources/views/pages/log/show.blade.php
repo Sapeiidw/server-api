@@ -8,13 +8,11 @@
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 py-8">
                 {{ $log }}
-                {{-- @foreach ($log as $item)
-                    {{ $item->log_name }}
-                    {{ $item->name }}
-                    {{ $item->subject }}
-                    {{ $item->causer }}
-                    {{ $item->created }}
-                @endforeach --}}
+                    {{ $log->log_name }}
+                    {{ $log->name }}
+                    {{ $log->subject }}
+                    {{ $log->causer }}
+                    {{ $log->created }}
             </div>
         </x-boxtable>
     </div>
