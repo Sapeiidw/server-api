@@ -1,7 +1,7 @@
-<nav x-data="{ open: false }" class="bg-white">
+<nav x-data="{ open: false }" class="bg-white dark:bg-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="shadow">
-        <div class="bg-white px-6 sm:px-10 lg:px-12">
+        <div class="px-6 sm:px-10 lg:px-12">
             <div class="flex justify-between items-center mx-auto h-24">
                 <div class="flex">
                     <!-- Logo -->
@@ -72,7 +72,9 @@
                     @endif --}}
 
                     <!-- Settings Dropdown -->
-                    <div class="ml-4 relative">
+                    <div class="ml-4 relative flex items-center">
+                        <!-- component -->
+                        <x-switcher></x-switcher>
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
