@@ -38,11 +38,11 @@
                 </div>
                 <x-jet-section-border />
                 <div class="flex-none  text-sm ml-3">
-                    <div class="flex items-center">
+                    <div class="flex m-2 items-center">
                         Create at:
                         {{ $log->causer->created_at }}
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex m-2 items-center">
                         Email Verified:
                         @if ($log->causer->email_verified_at)
                             <i class="fas fa-check ml-5"></i>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <x-jet-section-border />
-                <div class="ml-2 justify-start">
+                <div class="ml-2 m-2 justify-start">
                     <x-badge>{{$log->causer->roles->first()->name ?? '?'}}</x-badge>
                 </div>
                 <x-jet-section-border />

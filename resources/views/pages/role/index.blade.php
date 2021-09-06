@@ -65,7 +65,7 @@
                                         </div>
                                     </x-td>
                                     <x-td>
-                                        <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
+                                        <div class="flex sm:flex-row flex-col sm:w-1/5 justify-between ml-2">
                                             <a href="{{ route('role.edit', $item->id) }}" class="text-blue-800 flex flex-row items-center">
                                                 <i class="fas fa-pen mx-2"></i>
                                                 Edit

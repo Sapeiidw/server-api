@@ -74,10 +74,10 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
+                                    <div class="flex sm:flex-row flex-col sm:w-1/6 justify-between ml-2">
                                         <a href="{{ route('log.show', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
-                                            <i class="fas fa-eye"></i>
+                                            <i class="fas fa-eye mx-2"></i>
                                             View
                                         </a>
                                         <form action="{{ route('log.destroy', $item->id) }}" method="post" class="relative inline-block">

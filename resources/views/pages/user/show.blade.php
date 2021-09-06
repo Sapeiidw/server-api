@@ -12,7 +12,7 @@
 
             </div>
             <div class=" bg-white md:flex justify-between items-center m-1 mt-2 p-2 rounded-xl overflow-y-hidden">
-                <div class="md:w-1/3 flex items-center">
+                <div class="md:w-1/3 m-3 flex items-center">
                     <div class="flex-shrink-0 w-30 h-30">
                         <img class="w-full h-full rounded-full"
                             src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name
@@ -65,7 +65,8 @@
                 </x-jet-button>
             </div> --}}
             <div class="mx-auto pt-4 overflow-x-auto">
-                    <table class="min-w-full leading-normal border-black ">
+                <div class="inline-block border min-w-full rounded-2xl overflow-hidden">
+                    <table class="min-w-full leading-normal ">
                         <thead>
                             <x-tr>
                                 <x-th>
@@ -139,7 +140,7 @@
                     </table>
                     <div class="px-5 py-5 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
                     </div>
-
+                </div>
             </div>
         </x-boxtable>
     @forelse ( $activity as $item )

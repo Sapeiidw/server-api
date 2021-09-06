@@ -29,7 +29,7 @@
             </div>
             <div class="mx-auto pt-4 overflow-x-auto">
                 <div class="inline-block border min-w-full rounded-2xl overflow-hidden">
-                    <table class="min-w-full leading-normal border-black ">
+                    <table class="min-w-full leading-normal ">
                         <thead>
                             <x-tr>
                                 <x-th>
@@ -97,8 +97,8 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
-                                        <a href="{{ route('user.show',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-eye"></i></i>View</a>
+                                    <div class="flex sm:flex-row flex-col w-1/6 justify-between ml-2">
+                                        <a href="{{ route('user.show',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-eye mx-2"></i></i>View</a>
                                         <a href="{{ route('user.edit',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
                                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                             @csrf
