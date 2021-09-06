@@ -7,7 +7,7 @@
                 {{ __('User') }}
             </h2>
         </x-slot>
-        <x-boxtable>
+        {{-- <x-boxtable> --}}
             <div>
 
             </div>
@@ -118,19 +118,21 @@
                     </div>
 
             </div>
-        </x-boxtable>
-    @forelse ( $activity as $item )
-    <div>
-    {{-- {{ $item }} --}}
-
-
-
-
+        {{-- </x-boxtable> --}}
+    <div class="flex">
+        @forelse ( $activity as $item )
+        <div>
+        {{-- {{ $item }} --}}
+    
+    
+    
+    
+        </div>
+        @empty
+            Kosong
+        @endforelse
+    
+        </div>
+        {{ $activity->links() }}
     </div>
-    @empty
-        Kosong
-    @endforelse
-
-    </div>
-
 </x-admin-layout>
