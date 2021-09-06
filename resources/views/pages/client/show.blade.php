@@ -1,4 +1,5 @@
 <x-admin-layout>
+    @section('title', 'Client')
     <div class="w-4/5">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -57,7 +58,7 @@
                         </x-tr>
                     </thead>
                     <tbody>
-                        
+
                             <x-tr>
 
                                 <x-td>
@@ -79,7 +80,7 @@
                                         Redirect: <a class="text-blue-600">{{ $client->url }}</a>
                                     </div>
                                 </x-td>
-                                
+
                                 <x-td>
                                     <div class="ml-3">
                                         <a>{{ $client->id }}</a>

@@ -8,7 +8,25 @@
             </h2>
         </x-slot>
         <x-boxtable>
-            <div class=" flex justify-between sm:flex-row flex-col py-4 px-2">
+            <div>
+
+            </div>
+            <div class=" bg-white flex items-center m-1 mt-2 p-2 rounded-xl">
+                <div class="flex-shrink-0 w-30 h-30">
+                    <img class="w-full h-full rounded-full"
+                        src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name
+                        }}"
+                        alt="" />
+                </div>
+                <div class="ml-3">
+                    {{ $user->name }}
+                </div>
+                <div class=" ml-3">
+                    {{ $user->email }}
+                </div>
+
+            </div>
+            {{-- <div class=" flex justify-between sm:flex-row flex-col py-4 px-2">
                 <div class="flex relative sm:w-3/4">
                     <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                         <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
@@ -25,8 +43,7 @@
                 <x-jet-button>
                     <a href="{{ route('user.create') }}" >Add User</a>
                 </x-jet-button>
-
-            </div>
+            </div> --}}
             <div class="mx-auto pt-4 overflow-x-auto">
                     <table class="min-w-full leading-normal border-black ">
                         <thead>
@@ -54,37 +71,32 @@
                             </x-tr>
                         </thead>
                         <tbody>
-                            
+                            @forelse ( $activity as $item )
                             <x-tr>
                                 <x-td>
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
-                                            <img class="w-full h-full rounded-full"
-                                                src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name
-                                                }}"
-                                                alt="" />
-                                        </div>
-                                        <div class="ml-3">
-                                            {{ $user->name }}
-                                        </div>
+                                    <div class=" ml-3">
+                                        {{ $item->log_name }}
+                                    </div>
+
+
+                                </x-td>
+                                <x-td>
+                                    <div class=" ml-3">
+                                        {{ $item->description }}
                                     </div>
                                 </x-td>
                                 <x-td>
                                     <div class=" ml-3">
-                                        {{ $user->email }}
+                                        {{ $item->causer->name }}
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class=" ml-3">
-                                        {{ $user->created_at }}
-                                    </div>
-                                </x-td>
-                                <x-td>
-                                    @if ($user->email_verified_at)
+                                    {{ $item->properties ?? null }}
+                                    {{-- @if ($user->email_verified_at)
                                         <i class="fas fa-check ml-7"></i>
                                     @else
                                         <i class="fas fa-times ml-7" style="color: red"></i>
-                                    @endif
+                                    @endif --}}
                                 </x-td>
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
@@ -97,25 +109,28 @@
                                     </div>
                                 </x-td>
                             </x-tr>
+                            @empty
+                                Kosong
+                            @endforelse
                         </tbody>
                     </table>
                     <div class="px-5 py-5 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
                     </div>
-                
+
             </div>
         </x-boxtable>
     @forelse ( $activity as $item )
     <div>
     {{-- {{ $item }} --}}
-        {{ $item->log_name }}
-        {{ $item->description }}
-        {{ $item->causer->name }}
-        {{ $item->properties ?? null }}
+
+
+
+
     </div>
     @empty
         Kosong
     @endforelse
 
     </div>
-    
+
 </x-admin-layout>

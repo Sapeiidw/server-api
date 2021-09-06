@@ -1,8 +1,8 @@
 <nav x-data="{ open: false }" class="bg-white">
     <!-- Primary Navigation Menu -->
     <div class="shadow">
-        <div class="bg-white px-2 sm:px-6 lg:px-8">
-            <div class="max-w-6xl flex justify-between items-center mx-auto h-24">
+        <div class="bg-white px-6 sm:px-10 lg:px-12">
+            <div class="flex justify-between items-center mx-auto h-24">
                 <div class="flex">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
@@ -10,13 +10,14 @@
                             <x-jet-application-mark class="block h-9 w-auto" />
                         </a>
                     </div>
-
+                    @role("super-admin|admin")
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link class=" lg:text-base font-medium" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*')">
+                        <x-jet-nav-link class=" lg:text-base font-medium" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*','log.*','client.*')">
                             {{ __('Admin') }}
                         </x-jet-nav-link>
                     </div>
+                    @endrole
                 </div>
 
                 <div class="hidden sm:flex sm:items-center sm:ml-6">

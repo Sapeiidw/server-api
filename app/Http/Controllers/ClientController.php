@@ -28,8 +28,8 @@ class ClientController extends Controller
         ->performedOn(new Client())
         ->causedBy(auth()->user())
         ->log(':causer.name visited client page.');
-        
-        $clients = Client::where('name','like',"%{$request->search}%")->paginate(15);
+
+        $clients = Client::where('name','like',"%{$request->search}%")->paginate(20);
         return view('pages.client.index', compact('clients'));
     }
 
@@ -121,14 +121,14 @@ class ClientController extends Controller
                 Storage::delete($client->thumbnail);
             }
             $thumbnail = request()->file('thumbnail')->store('images/client');
-        } 
+        }
         elseif ($client->thumbnail) {
             $thumbnail = $client->thumbnail;
         }
         else {
             $thumbnail = null;
         }
-        
+
         $client->update([
             'name' => $request->name,
             'slug'=> Str::slug($request->name),
@@ -137,7 +137,7 @@ class ClientController extends Controller
             'thumbnail' => $thumbnail,
             'visibility' => $request->visibility,
         ]);
-        
+
        return back()->with('success','Client was Updated!!');
     }
 

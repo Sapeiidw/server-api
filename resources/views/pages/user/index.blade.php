@@ -8,7 +8,7 @@
             </h2>
         </x-slot>
         <x-boxtable>
-            <div class=" flex justify-between sm:flex-row flex-col py-4 px-2">
+            <div class="flex justify-between sm:flex-row flex-col py-4 px-2">
                 <div class="flex relative sm:w-3/4">
                     <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                         <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
@@ -98,7 +98,7 @@
                                 </x-td>
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
-                                        <a href="{{ route('user.show',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>View</a>
+                                        <a href="{{ route('user.show',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-eye"></i></i>View</a>
                                         <a href="{{ route('user.edit',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
                                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                             @csrf

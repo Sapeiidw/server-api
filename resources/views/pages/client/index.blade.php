@@ -1,4 +1,5 @@
 <x-admin-layout>
+    @section('title', 'Client')
     <div class="w-4/5">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -6,8 +7,8 @@
         </h2>
     </x-slot>
     <x-boxtable>
-        <div class="my-2 flex justify-between sm:flex-row flex-col">
-            <div class="block relative w-3/4">
+        <div class="flex justify-between sm:flex-row flex-col py-4 px-2">
+            <div class="flex relative sm:w-3/4">
                 <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                     <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
                         <path
@@ -15,7 +16,7 @@
                         </path>
                     </svg>
                 </span>
-                <form action="{{ route('client.index') }}" method="get">
+                <form class="w-full" action="{{ route('client.index') }}" method="get">
                     <input placeholder="Search" name="search"
                     class="appearance-none rounded-full border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </form>
@@ -75,13 +76,17 @@
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
                                         <a href="{{ route('client.show', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
-                                            <i class="fas fa-pen mx-2"></i>
-                                            View
+                                            <i class="fas fa-eye"></i>
+                                            <div class="xl:visible xl:hidden">
+                                                View
+                                            </div>
                                         </a>
                                         <a href="{{ route('client.edit', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-pen mx-2"></i>
-                                            Edit
+                                            <div class="xl:visible xl:hidden">
+                                                Edit
+                                            </div>
                                         </a>
                                         <form action="{{ route('client.destroy', $item->id) }}" method="post" class="relative inline-block">
                                         @csrf
@@ -90,7 +95,9 @@
                                         class="text-red-900 flex flex-row items-center"
                                             onclick="return confirm('are you sure?!')">
                                             <i class="fas fa-trash-alt mx-2"></i>
-                                            Delete
+                                            <div class="xl:visible sm:hidden">
+                                                Delete
+                                            </div>
                                         </button>
                                         </form>
                                     </div>
