@@ -76,13 +76,17 @@
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
                                         <a href="{{ route('client.show', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
-                                            <i class="fas fa-pen mx-2"></i>
-                                            View
+                                            <i class="fas fa-eye"></i>
+                                            <div class="xl:visible xl:hidden">
+                                                View
+                                            </div>
                                         </a>
                                         <a href="{{ route('client.edit', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-pen mx-2"></i>
-                                            Edit
+                                            <div class="xl:visible xl:hidden">
+                                                Edit
+                                            </div>
                                         </a>
                                         <form action="{{ route('client.destroy', $item->id) }}" method="post" class="relative inline-block">
                                         @csrf
@@ -91,7 +95,9 @@
                                         class="text-red-900 flex flex-row items-center"
                                             onclick="return confirm('are you sure?!')">
                                             <i class="fas fa-trash-alt mx-2"></i>
-                                            Delete
+                                            <div class="xl:visible sm:hidden">
+                                                Delete
+                                            </div>
                                         </button>
                                         </form>
                                     </div>

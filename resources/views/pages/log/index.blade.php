@@ -77,7 +77,7 @@
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
                                         <a href="{{ route('log.show', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
-                                            <i class="fas fa-pen mx-2"></i>
+                                            <i class="fas fa-eye"></i>
                                             View
                                         </a>
                                         <form action="{{ route('log.destroy', $item->id) }}" method="post" class="relative inline-block">
