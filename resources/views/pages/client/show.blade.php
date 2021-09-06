@@ -97,7 +97,7 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
+                                    <div class="flex sm:flex-row flex-col w-1/12 justify-between ml-2">
                                         <a href="{{ route('client.edit', $client->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-pen mx-2"></i>

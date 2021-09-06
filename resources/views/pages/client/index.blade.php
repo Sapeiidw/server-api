@@ -73,7 +73,7 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex lg:flex-row flex-col sm:w-1/5 justify-between ml-2">
+                                    <div class="flex lg:flex-row flex-col sm:w-1/5 justify-between items-center ml-2">
                                         <a href="{{ route('client.show', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye mx-2"></i>
