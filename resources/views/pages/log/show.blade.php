@@ -7,7 +7,7 @@
         </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 py-8">
-                {{ $log }}
+                {{-- {{ $log }} --}}
                     {{ $log->log_name }}
                     {{ $log->name }}
                     {{ $log->subject }}

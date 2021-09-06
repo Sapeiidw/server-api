@@ -77,7 +77,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $activity = Activity::where('causer_id',$user->id)->get();
+        $activity = Activity::where('causer_id',$user->id)->paginate(20);
         return view('pages.user.show', compact('user','activity'));
 
     }
