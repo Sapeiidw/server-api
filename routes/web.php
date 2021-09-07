@@ -19,14 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
-
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/', function () {
         $client = Client::all();
@@ -36,5 +28,5 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('role', RoleController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('client', ClientController::class);
-    Route::resource('log', LogController::class);
+    Route::resource('log', LogController::class)->only(['index','delete','show']);
 });

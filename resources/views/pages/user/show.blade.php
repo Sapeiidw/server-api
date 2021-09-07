@@ -92,11 +92,6 @@
                                 </x-td>
                                 <x-td>
                                     {{ $item->properties ?? null }}
-                                    {{-- @if ($user->email_verified_at)
-                                        <i class="fas fa-check ml-7"></i>
-                                    @else
-                                        <i class="fas fa-times ml-7" style="color: red"></i>
-                                    @endif --}}
                                 </x-td>
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">

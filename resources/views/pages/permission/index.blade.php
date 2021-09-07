@@ -48,7 +48,7 @@
                         @foreach ($permissions as $item)
                             <x-tr>
                                 <x-td>
-                                    <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration }}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration + $permissions->perPage() * ($permissions->currentPage() -1 ) }}</p>
                                 </x-td>
                                 <x-td>
                                     <div class="ml-3">
