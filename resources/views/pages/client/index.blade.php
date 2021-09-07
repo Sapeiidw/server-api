@@ -26,9 +26,9 @@
             </x-jet-button>
 
         </div>
-        <div class="mx-auto overflow-x-auto">
+        <div class=" dark:bg-gray-700 mx-auto overflow-x-auto">
             <div class="inline-block border min-w-full shadow rounded-lg overflow-hidden">
-                <table class="min-w-full leading-normal">
+                <table class=" dark:bg-gray-700 min-w-full leading-normal">
                     <thead>
                         <x-tr>
                             <x-th>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+<html class="dark:bg-gray-800 dark:text-white" lang="{{ str_replace('_', '-', app()->getLocale()) }}"
     class="transition ease-in-out duration-500"
     x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
     x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
@@ -39,7 +39,7 @@
 
             <!-- Page Heading -->
 
-            <!-- Page Content -->  
+            <!-- Page Content -->
             <main class="flex min-h-screen">
                 @include('sidebar-admin')
                 {{ $slot }}

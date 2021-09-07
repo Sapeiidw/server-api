@@ -1,4 +1,4 @@
-<aside class="sidebar md:max-w-1/5 w-1/5 sticky-top-0 relative shadow-md rounded-t-2xl overflow-x-hidden border border-gray-200 mt-2 ml-2 bg-sidebar bg-white h-min-screen sm:block">
+<aside class="sidebar dark:bg-gray-700 dark:text-white md:max-w-1/5 w-1/5 sticky-top-0 relative shadow-md rounded-t-2xl overflow-x-hidden border border-gray-200 mt-2 ml-2 bg-sidebar bg-white h-min-screen sm:block">
     <nav class="text-white text-base font-semibold overflow-x-hidden pt-3 ">
         {{-- <div class="flex py-3 justify-between text-gray-700">
             <div class=" text-black">Management</div>

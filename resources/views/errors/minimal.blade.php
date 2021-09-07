@@ -57,7 +57,6 @@
                                 </div>
                             </div>
                             <div class="ml-52 flex-row-reverse">
-                                <img src="">
                                 @yield('image')
                             </div>
                         </div>
