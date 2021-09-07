@@ -52,7 +52,7 @@
                         @foreach ($clients as $item)
                             <x-tr>
                                 <x-td>
-                                    <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration }}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration + $clients->perPage() * ($clients->currentPage() -1 ) }}</p>
                                 </x-td>
                                 <x-td>
                                     <div class="flex items-center">
