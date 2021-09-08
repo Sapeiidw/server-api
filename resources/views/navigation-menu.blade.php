@@ -83,7 +83,7 @@
                                     </button>
                                 @else
                                     <span class="inline-flex rounded-md">
-                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-gray-200 hover:text-gray-700 focus:outline-none transition">
+                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md dark:bg-gray-700 dark:border-gray-900 text-gray-500 bg-gray-200 hover:text-gray-700 focus:outline-none transition">
                                             {{ Auth::user()->name }}
 
                                             <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -95,12 +95,6 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <!-- Account Management -->
-                                {{-- <div class="block px-4 py-2 text-xs text-gray-400">
-                                    <i class="fas fa-user-cog m-1"></i>
-                                    {{ __('Manage Account') }}
-                                </div> --}}
-
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                     <i class="fas fa-user-circle m-1"></i>
                                     {{ __('Profile') }}
@@ -112,7 +106,7 @@
                                     </x-jet-dropdown-link>
                                 @endif
 
-                                <div class="border-t border-gray-100"></div>
+                                <div class="border-t dark:border-gray-900 border-gray-100"></div>
 
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
@@ -132,6 +126,7 @@
 
                 <!-- Hamburger -->
                 <div class="flex items-center sm:hidden">
+                    <x-switcher></x-switcher>
                     <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-full text-blue-500 hover:text-blue-800 hover:bg-gray-300 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -147,14 +142,14 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <div class="pt-2 pb-3 space-y-1 ">
             <x-jet-responsive-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*')">
                 {{ __('Admin') }}
             </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
+        <div class="pt-4 pb-1 dark:border-gray-900 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="flex-shrink-0 mr-3">
@@ -163,8 +158,8 @@
                 @endif
 
                 <div>
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-base dark:text-white text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm dark:text-white text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
             </div>
 
