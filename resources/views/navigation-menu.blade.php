@@ -19,7 +19,7 @@
                     </div>
                     @endrole
                 </div>
-
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <!-- Settings Dropdown -->
                     <div class="ml-4 relative flex items-center dark:text-white">
                         <!-- component -->
@@ -85,9 +85,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
