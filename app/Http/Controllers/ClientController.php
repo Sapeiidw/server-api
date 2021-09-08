@@ -59,7 +59,7 @@ class ClientController extends Controller
             'visibility' => 'required|string',
         ]);
         $thumbnail = request('thumbnail') ? request()->file('thumbnail')->store('images/client') : null;
-        Client::create([
+        $client = Client::create([
             'user_id' => auth()->user()->id,
             'name'=> $request->name,
             'secret' => Str::random(50),
@@ -74,7 +74,7 @@ class ClientController extends Controller
             "revoked" => false,
             ]);
 
-        return back()->with('success','Client was Created!!');
+        return redirect(route('client.show',$client->id))->with('success','Client was Created!!');
     }
 
     /**
