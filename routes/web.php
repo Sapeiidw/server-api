@@ -28,5 +28,5 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('role', RoleController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('client', ClientController::class);
-    Route::resource('log', LogController::class)->only(['index','delete','show']);
+    Route::resource('log', LogController::class)->only(['index','destroy','show']);
 });
