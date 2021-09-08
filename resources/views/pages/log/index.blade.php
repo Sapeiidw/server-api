@@ -72,13 +72,8 @@
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col sm:w-1/6 justify-between ml-2">
                                         <a href="{{ route('log.show', $item->id) }}"
-<<<<<<< HEAD
                                             class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye"></i>
-=======
-                                            class="text-blue-800 flex flex-row items-center">
-                                            <i class="fas fa-eye mx-2"></i>
->>>>>>> 037faa602e01f6846ca8ccaee72122a4851d88bd
                                             View
                                         </a>
                                         <form action="{{ route('log.destroy', $item->id) }}" method="post" class="relative inline-block">
