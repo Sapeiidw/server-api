@@ -11,20 +11,40 @@
             <div>
 
             </div>
-            <div class="dark:bg-gray-700 dark:text-white bg-white flex items-center m-1 mt-2 p-2 rounded-xl">
-                <div class="flex-shrink-0 w-30 h-30">
-                    <img class="w-full h-full rounded-full"
-                        src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name
-                        }}"
-                        alt="" />
+            <div class=" bg-white md:flex justify-between items-center m-1 mt-2 p-2 rounded-xl overflow-y-hidden">
+                <div class="md:w-1/3 m-3 flex items-center">
+                    <div class="flex-shrink-0 w-30 h-30">
+                        <img class="w-full h-full rounded-full"
+                            src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name
+                            }}"
+                            alt="" />
+                    </div>
+                    <div class=" ml-3 flex-none">
+                        <div class=" font-semibold">
+                            {{ $user->name }}
+                        </div>
+                        <div>
+                            {{ $user->email }}
+                        </div>
+                    </div>
                 </div>
-                <div class="ml-3">
-                    {{ $user->name }}
+                <div class="flex-none md:w-1/3 ml-3">
+                    <div class="flex items-center">
+                        Create at:
+                        {{ $user->created_at }}
+                    </div>
+                    <div class="flex items-center">
+                        Verified:
+                        @if ($user->email_verified_at)
+                            <i class="fas fa-check ml-7"></i>
+                        @else
+                            <i class="fas fa-times ml-7" style="color: red"></i>
+                        @endif
+                    </div>
                 </div>
-                <div class=" ml-3">
-                    {{ $user->email }}
+                <div class="md:w-1/3 ml-3 justify-start">
+                    <x-badge>{{ $user->roles->first()->name ?? '?'}}</x-badge>
                 </div>
-
             </div>
             {{-- <div class=" flex justify-between sm:flex-row flex-col py-4 px-2">
                 <div class="flex relative sm:w-3/4">
@@ -45,29 +65,30 @@
                 </x-jet-button>
             </div> --}}
             <div class="mx-auto pt-4 overflow-x-auto">
-                    <table class="min-w-full leading-normal border-black ">
+                <div class="inline-block border min-w-full rounded-2xl overflow-hidden">
+                    <table class="min-w-full leading-normal ">
                         <thead>
                             <x-tr>
                                 <x-th>
                                     <i class="fas fa-user mr-1"></i>
-                                    Name
+                                    Log Name
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-envelope mr-1"></i>
-                                    Email
+                                    description
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-folder-plus mr-1"></i>
-                                    Created at
+                                    Causer
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-user-check mr-1"></i>
-                                    Verified
+                                    Properties
                                 </x-th>
-                                <x-th>
+                                {{-- <x-th>
                                     <i class="fas fa-edit mr-1"></i>
                                     Action
-                                </x-th>
+                                </x-th> --}}
                             </x-tr>
                         </thead>
                         <tbody>
@@ -77,8 +98,6 @@
                                     <div class=" ml-3">
                                         {{ $item->log_name }}
                                     </div>
-
-
                                 </x-td>
                                 <x-td>
                                     <div class=" ml-3">
@@ -91,9 +110,17 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    {{ $item->properties ?? null }}
+                                    <div class=" ml-3">
+                                        {{ $item->properties ?? null }}
+                                    </div>
+
+                                    {{-- @if ($user->email_verified_at)
+                                        <i class="fas fa-check ml-7"></i>
+                                    @else
+                                        <i class="fas fa-times ml-7" style="color: red"></i>
+                                    @endif --}}
                                 </x-td>
-                                <x-td>
+                                {{-- <x-td>
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
                                         <a href="{{ route('user.edit',$user->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
                                         <form action="{{ route('user.destroy', $user->id) }}" method="post">
@@ -102,32 +129,32 @@
                                             <button type="submit" onclick="return confirm('Are u Sure!!')" class="text-red-900 flex flex-row items-center"><i class="fas fa-trash-alt mx-2"></i>Delete</button>
                                         </form>
                                     </div>
-                                </x-td>
+                                </x-td> --}}
                             </x-tr>
                             @empty
-                                Kosong
+                                <div class="m-3">
+                                    Tidak Ada Activity
+                                </div>
                             @endforelse
                         </tbody>
                     </table>
-                    <div class="px-5 py-5 dark:bg-gray-700 dark:border-gray-800 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
+                    <div
+                        class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                        {{ $activity->links() }}
                     </div>
-
+                </div>
             </div>
+            
         </x-boxtable>
-    <div class="flex">
+    {{-- <div class="flex">
         @forelse ( $activity as $item )
-        <div>
+         --}}
         {{-- {{ $item }} --}}
-
-
-
-
-        </div>
-        @empty
+        {{-- @empty
             Kosong
         @endforelse
-
-        </div>
+    
+    
         {{ $activity->links() }}
-    </div>
+    </div> --}}
 </x-admin-layout>

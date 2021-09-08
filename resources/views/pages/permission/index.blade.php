@@ -56,7 +56,7 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
+                                    <div class="flex sm:flex-row flex-col w-1/6 justify-between ml-2">
                                         <a href="{{ route('permission.edit', $item->id) }}"
                                             class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-pen mx-2"></i>
