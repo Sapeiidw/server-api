@@ -21,7 +21,6 @@
                     class="appearance-none rounded-full dark:border-gray-800 dark:bg-gray-700 dark:text-white border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </form>
             </div>
-
         </div>
         <div class="mx-auto overflow-x-auto">
             <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full shadow rounded-lg overflow-hidden">
@@ -32,15 +31,15 @@
                                 <i class="fas fa-hashtag"></i>
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-user mr-1"></i>
                                 Causer
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-file-alt mr-1"></i>
                                 Description
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-calendar-day mr-1"></i>
                                 Date
                             </x-th>
                             <x-th>
@@ -71,10 +70,15 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
+                                    <div class="flex sm:flex-row flex-col sm:w-1/6 justify-between ml-2">
                                         <a href="{{ route('log.show', $item->id) }}"
+<<<<<<< HEAD
                                             class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye"></i>
+=======
+                                            class="text-blue-800 flex flex-row items-center">
+                                            <i class="fas fa-eye mx-2"></i>
+>>>>>>> 037faa602e01f6846ca8ccaee72122a4851d88bd
                                             View
                                         </a>
                                         <form action="{{ route('log.destroy', $item->id) }}" method="post" class="relative inline-block">

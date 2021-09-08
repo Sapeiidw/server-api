@@ -35,11 +35,11 @@
                                 <i class="fas fa-hashtag"></i>
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-cogs mr-1"></i>
                                 Client
                             </x-th>
                             <x-th>
-                                <i class="fas fa-id-badge mr-1"></i>
+                                <i class="fas fa-link mr-1"></i>
                                 Link
                             </x-th>
                             <x-th>
@@ -73,20 +73,16 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-                                    <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
+                                    <div class="flex lg:flex-row flex-col sm:w-1/5 md:justify-between justify-center items-center ml-2">
                                         <a href="{{ route('client.show', $item->id) }}"
                                             class="text-blue-800 flex flex-row items-center">
-                                            <i class="fas fa-eye"></i>
-                                            <div class="xl:visible xl:hidden">
-                                                View
-                                            </div>
+                                            <i class="fas fa-eye mx-2"></i>
+                                            View
                                         </a>
                                         <a href="{{ route('client.edit', $item->id) }}"
                                             class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-pen mx-2"></i>
-                                            <div class="xl:visible xl:hidden">
-                                                Edit
-                                            </div>
+                                            Edit
                                         </a>
                                         <form action="{{ route('client.destroy', $item->id) }}" method="post" class="relative inline-block">
                                         @csrf
@@ -95,9 +91,7 @@
                                         class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                             onclick="return confirm('are you sure?!')">
                                             <i class="fas fa-trash-alt mx-2"></i>
-                                            <div class="xl:visible sm:hidden">
-                                                Delete
-                                            </div>
+                                            Delete
                                         </button>
                                         </form>
                                     </div>
