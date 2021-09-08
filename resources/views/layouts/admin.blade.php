@@ -24,7 +24,7 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" ></script>
+        <script src="{{ mix('js/app.js') }}" async></script>
     </head>
     <body class="antialiased dark:bg-gray-800 dark:text-white"
     class="transition ease-in-out duration-500"
