@@ -19,7 +19,7 @@
                     </span>
                     <form class="w-full" action="{{ route('role.index') }}" method="get">
                         <input placeholder="Search" name="search"
-                        class="appearance-none rounded-full dark:border-gray-800 dark:bg-gray-700 border border-gray-400 border-b block sm:pt-2 pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                        class="appearance-none rounded-full dark:border-gray-800 dark:bg-gray-700 dark:text-white border border-gray-400 border-b block sm:pt-2 pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                     </form>
                 </div>
                 <x-jet-button>
