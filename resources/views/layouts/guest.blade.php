@@ -24,10 +24,14 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" async></script>
     </head>
-    <body>
-        <div class=" bg-gray-200 font-sans text-gray-900 antialiased dark:bg-gray-800 dark:text-white">
+    <body
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
+    >
+        <div class=" bg-gray-200 text-gray-900 font-sans  antialiased dark:bg-gray-800 dark:text-white">
             {{ $slot }}
         </div>
     </body>
