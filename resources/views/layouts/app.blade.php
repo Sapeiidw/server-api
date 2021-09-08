@@ -35,7 +35,7 @@
     <body class="antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen dark:bg-gray-900 dark:text-white bg-gray-100">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
