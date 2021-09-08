@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-700">
+<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800">
     <!-- Primary Navigation Menu -->
     <div class="shadow">
         <div class="px-6 sm:px-10 lg:px-12">
