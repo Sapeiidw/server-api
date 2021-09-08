@@ -19,7 +19,7 @@
                     </span>
                     <form class="w-full" action="{{ route('user.index') }}" method="get">
                         <input placeholder="Search" name="search"
-                        class="appearance-none rounded-full border border-gray-400 border-b block sm:pt-2 pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                        class="appearance-none rounded-full border dark:border-gray-800 dark:bg-gray-600 border-gray-400 border-b block sm:pt-2 pl-8 pr-6 py-2 w-full  bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                     </form>
                 </div>
                 <x-jet-button>
@@ -28,11 +28,11 @@
 
             </div>
             <div class="mx-auto pt-4 overflow-x-auto">
-                <div class="inline-block border min-w-full rounded-2xl overflow-hidden">
-                    <table class="min-w-full leading-normal border-black ">
+                <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full rounded-2xl overflow-hidden">
+                    <table class="min-w-full leading-normal ">
                         <thead>
-                            <x-tr>
-                                <x-th>
+                            <x-tr >
+                                <x-th >
                                     <i class="fas fa-user mr-1"></i>
                                     Name
                                 </x-th>
@@ -115,7 +115,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <div class="px-5 py-5 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
+                    <div class="px-5 py-5 dark:bg-gray-600 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
                         {{ $users->links() }}
                     </div>
                 </div>
