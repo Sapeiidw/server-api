@@ -97,15 +97,9 @@
                                     </div>
                                 </x-td>
                                 <x-td>
-<<<<<<< HEAD
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
                                         <a href="{{ route('user.show',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-eye"></i></i>View</a>
                                         <a href="{{ route('user.edit',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
-=======
-                                    <div class="flex sm:flex-row flex-col w-1/6 justify-between items-center ml-2">
-                                        <a href="{{ route('user.show',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-eye mx-2"></i></i>View</a>
-                                        <a href="{{ route('user.edit',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
->>>>>>> 037faa602e01f6846ca8ccaee72122a4851d88bd
                                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('delete')
