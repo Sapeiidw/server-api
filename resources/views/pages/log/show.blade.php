@@ -21,9 +21,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 <x-jet-section-border />
                 <div class="flex-none  text-sm ml-3">

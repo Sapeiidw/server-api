@@ -6,9 +6,6 @@
 
         <title>@yield('title')</title>
 
-        <!-- Fonts -->
-        {{-- <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> --}}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,17 +22,10 @@
             }
 
         </style>
-        {{-- URL::{{ asset('assets/img/undraw_Faq_re_31cw.svg') }} --}}
+
     </head>
     <body >
-        {{-- <div class="background h-80 w-full bg-right-bottom bg-no-repeat" style="background-image: ('{{ asset('/img/undraw_Faq_re_31cw.svg') }}')" >
-            <img  alt="" srcset="">
-        </div> --}}
-        {{-- @yield('code')
-        @yield('message') --}}
         <div class="min-h-screen ">
-            {{-- <div class="">
-                <div > --}}
                     <div class="relative flex justify-center min-h-screen dark:bg-gray-900 sm:items-center sm:pt-0">
                         <div class="flex flex-row items-center sm:px-6 lg:px-8">
                             <div class="flex-none pt-8 sm:pt-0 mr-28">

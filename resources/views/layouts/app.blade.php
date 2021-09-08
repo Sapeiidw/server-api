@@ -32,8 +32,6 @@
     x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
     x-bind:class="{ 'dark': darkMode }"
     >
-        <x-jet-banner />
-
         <div class="min-h-screen dark:bg-gray-900 dark:text-white bg-gray-100">
             @livewire('navigation-menu')
 

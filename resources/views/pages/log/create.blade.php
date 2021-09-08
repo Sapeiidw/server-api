@@ -29,7 +29,6 @@
                     </div>
                     <div class="mt-4">
                         <x-jet-label for="photo" value="Photo" />
-                        {{-- <input class="block w-full mt-1" type="file" name="photo"/> --}}
                         <input type="file" name="photo" id="">
                         @error('photo')
                             <span class="text-red-900 p-2">{{ $message }}</span>

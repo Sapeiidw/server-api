@@ -51,20 +51,6 @@
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
-            {{-- <div class="flex flex-col-reverse">
-            @section('footer')
-
-
-            @endsection
-            </div> --}}
-
-
         </form>
-        {{-- @slot('footer')
-        <a class=" flex-row underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-            {{ __('Dont have an account? Register') }}
-        </a>
-        @endslot --}}
-
     </x-jet-authentication-card>
 </x-guest-layout>
