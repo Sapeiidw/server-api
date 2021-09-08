@@ -60,7 +60,6 @@
                     <tbody>
 
                             <x-tr>
-
                                 <x-td>
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 w-10 h-10">
@@ -119,6 +118,10 @@
 
                     </tbody>
                 </table>
+                <div
+                    class="px-5 py-5 bg-white flex flex-col xs:flex-row items-center xs:justify-between          ">
+                    {{ $client->onEachSide(5)->links() }}
+                </div>
             </div>
         </div>
     </x-boxtable>

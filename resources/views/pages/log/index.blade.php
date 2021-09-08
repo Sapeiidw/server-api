@@ -52,7 +52,7 @@
                         @foreach ($logs as $item)
                             <x-tr>
                                 <x-td>
-                                    <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration }}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration + $logs->perPage() * ($logs->currentPage() -1 ) }}</p>
                                 </x-td>
                                 <x-td>
                                     <div class="ml-3">
@@ -94,7 +94,7 @@
                 </table>
                 <div
                     class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                    {{ $logs->links() }}
+                    {{ $logs->onEachSide(5)->links() }}
                 </div>
             </div>
         </div>

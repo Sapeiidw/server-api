@@ -52,7 +52,7 @@
                             @foreach ($roles as $item)
                                 <x-tr>
                                     <x-td>
-                                        <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration }}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration + $roles->perPage() * ($roles->currentPage() -1 ) }}</p>
                                     </x-td>
                                     <x-td>
                                         <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $item->name }}</p>
@@ -88,7 +88,7 @@
                     </table>
                     <div
                         class="px-5 py-5 bg-white flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        {{ $roles->links() }}
+                        {{ $roles->onEachSide(5)->links() }}
                     </div>
                 </div>
             </div>

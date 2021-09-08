@@ -70,6 +70,9 @@
                         <thead>
                             <x-tr>
                                 <x-th>
+                                    <i class="fas fa-hashtag"></i>
+                                </x-th>
+                                <x-th>
                                     <i class="fas fa-user mr-1"></i>
                                     Log Name
                                 </x-th>
@@ -94,6 +97,9 @@
                         <tbody>
                             @forelse ( $activity as $item )
                             <x-tr>
+                                <x-td>
+                                    <p class="text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration + $activity->perPage() * ($activity->currentPage() -1 ) }}</p>
+                                </x-td>
                                 <x-td>
                                     <div class=" ml-3">
                                         {{ $item->log_name }}
@@ -140,11 +146,11 @@
                     </table>
                     <div
                         class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        {{ $activity->links() }}
+                        {{ $activity->onEachSide(5)->links() }}
                     </div>
                 </div>
             </div>
-            
+
         </x-boxtable>
     {{-- <div class="flex">
         @forelse ( $activity as $item )
@@ -153,8 +159,8 @@
         {{-- @empty
             Kosong
         @endforelse
-    
-    
+
+
         {{ $activity->links() }}
     </div> --}}
 </x-admin-layout>

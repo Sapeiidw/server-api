@@ -102,7 +102,7 @@
                 </table>
                 <div
                     class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                    {{ $clients->links() }}
+                    {{ $clients->onEachSide(5)->links() }}
                 </div>
             </div>
         </div>
