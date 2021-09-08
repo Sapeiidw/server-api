@@ -93,8 +93,8 @@
                     </tbody>
                 </table>
                 <div
-                    class="px-5 py-5 dark:bg-gray-700 dark:border-gray-800 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                    {{ $logs->onEachSide(5)->links() }}
+                    class="px-5 py-5 dark:bg-gray-700 dark:border-gray-800 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
+                    {{ $logs->links() }}
                 </div>
             </div>
         </div>

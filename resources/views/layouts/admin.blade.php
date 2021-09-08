@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html class="dark:bg-gray-800 dark:text-white" lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    class="transition ease-in-out duration-500"
-    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
-    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
-    x-bind:class="{ 'dark': darkMode }"
->
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,9 +24,13 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" ></script>
     </head>
-    <body class="antialiased">
+    <body class="antialiased dark:bg-gray-800 dark:text-white"
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
+    >
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white">
