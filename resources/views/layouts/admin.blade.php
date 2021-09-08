@@ -27,6 +27,7 @@
         <script src="{{ mix('js/app.js') }}" ></script>
     </head>
     <body class="antialiased dark:bg-gray-800 dark:text-white"
+    class="transition ease-in-out duration-500"
     x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
     x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
     x-bind:class="{ 'dark': darkMode }"

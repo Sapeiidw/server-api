@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}"></script>
     </head>
     <body>
         <div class=" bg-gray-200 font-sans text-gray-900 antialiased dark:bg-gray-800 dark:text-white">
