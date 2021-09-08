@@ -27,7 +27,7 @@
 
         </div>
         <div class="mx-auto overflow-x-auto">
-            <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full shadow rounded-lg overflow-hidden">
+            <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full shadow rounded-2xl overflow-hidden">
                 <table class=" dark:bg-gray-700 min-w-full leading-normal">
                     <thead>
                         <x-tr>
@@ -75,7 +75,7 @@
                                 <x-td>
                                     <div class="flex lg:flex-row flex-col sm:w-1/5 md:justify-between justify-center items-center ml-2">
                                         <a href="{{ route('client.show', $item->id) }}"
-                                            class="text-blue-800 flex flex-row items-center">
+                                            class="dark:text-blue-500  text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye mx-2"></i>
                                             View
                                         </a>
@@ -101,7 +101,7 @@
                     </tbody>
                 </table>
                 <div
-                    class="px-5 py-5 dark:bg-gray-700 dark:border-gray-800 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                    class="px-5 py-5 dark:bg-gray-700 bg-white flex flex-col xs:flex-row items-center xs:justify-between">
                     {{ $clients->links() }}
                 </div>
             </div>

@@ -27,7 +27,7 @@
 
         </div>
         <div class="mx-auto overflow-x-auto">
-            <div class="inline-block border dark:border-gray-800 dark:text-white min-w-full shadow rounded-lg overflow-hidden">
+            <div class="inline-block border dark:border-gray-800 dark:text-white min-w-full shadow rounded-2xl overflow-hidden">
                 <table class="min-w-full leading-normal">
                     <thead>
                         <x-tr>
@@ -99,7 +99,7 @@
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-1/12 justify-between ml-2">
                                         <a href="{{ route('client.edit', $client->id) }}"
-                                            class="text-blue-800 flex flex-row items-center">
+                                            class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-pen mx-2"></i>
                                             Edit
                                         </a>
@@ -107,7 +107,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                        class="text-red-900 flex flex-row items-center"
+                                        class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                             onclick="return confirm('are you sure?!')">
                                             <i class="fas fa-trash-alt mx-2"></i>
                                             Delete

@@ -1,21 +1,10 @@
 <x-admin-layout>
     @section('title', 'Log')
     <div class="w-4/5">
-        {{-- <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Client > Edit') }}
-            </h2>
-        </x-slot> --}}
         <x-boxtable>
             <div>
-                <div class="bg-white m-2 px-4 sm:px-8 py-8 rounded-2xl">
-                    {{-- {{ $log }} --}}
-                        {{-- {{ $log->log_name }}
-                        {{ $log->name }}
-                        {{ $log->subject }}
-                        {{ $log->causer }}
-                        {{ $log->email_verified_at }} --}}
-                    <div class=" bg-white md:flex justify-between items-center m-1 mt-2 p-2 rounded-xl overflow-y-hidden">
+                <div class="dark:bg-gray-700 bg-white m-2 px-4 sm:px-8 py-8 rounded-2xl">
+                    <div class="md:flex justify-between items-center m-1 mt-2 p-2 rounded-2xl overflow-y-hidden">
                         <div class="md:w-1/3 flex items-center">
                             <div class="flex-shrink-0 w-24 h-24">
                                 <img class="w-full h-full rounded-full"
@@ -56,6 +45,11 @@
                     <x-badge>{{$log->causer->roles->first()->name ?? '?'}}</x-badge>
                 </div>
                 <x-jet-section-border />
+                <div class="flex ml-3 items-center justify-start">
+                    {{ $log->description }}
+                </div>
+                <x-jet-section-border />
+            </div>
             </div>
         </x-boxtable>
     </div>

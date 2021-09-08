@@ -27,7 +27,7 @@
                 </x-jet-button>
             </div>
             <div class="pt-4 mx-auto overflow-x-auto">
-                <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full rounded-lg overflow-hidden">
+                <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full rounded-2xl overflow-hidden">
                     <table class="min-w-full leading-normal">
                         <thead>
                             <x-tr>
@@ -58,7 +58,7 @@
                                         <p class="dark:text-white text-gray-900 whitespace-no-wrap ml-3">{{ $item->name }}</p>
                                     </x-td>
                                     <x-td>
-                                        <div class=" ml-3">
+                                        <div class=" dark:bg-gray-700 ml-3">
                                             @foreach ($item->permissions as $permission)
                                             <x-badge>{{ $permission->name }}</x-badge>
                                         @endforeach
@@ -87,7 +87,7 @@
                         </tbody>
                     </table>
                     <div
-                        class="px-5 py-5 dark:bg-gray-700 dark:border-gray-800 bg-white flex flex-col xs:flex-row items-center xs:justify-between          ">
+                        class="px-5 py-5 dark:bg-gray-700 bg-white flex flex-col xs:flex-row items-center xs:justify-between          ">
                         {{ $roles->links() }}
                     </div>
                 </div>

@@ -27,7 +27,7 @@
 
             </div>
             <div class="mx-auto overflow-x-auto">
-                <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full shadow rounded-lg overflow-hidden">
+                <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full shadow rounded-2xl overflow-hidden">
                     <table class="min-w-full leading-normal">
                         <thead>
                             <x-tr>
@@ -79,7 +79,7 @@
                         </tbody>
                     </table>
                     <div
-                        class="px-5 py-5 dark:bg-gray-700 dark:border-gray-800 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                        class="px-5 py-5 dark:bg-gray-700 bg-white flex flex-col xs:flex-row items-center xs:justify-between          ">
                         {{ $permissions->links() }}
                     </div>
                 </div>
