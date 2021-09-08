@@ -18,7 +18,7 @@
                 </span>
                 <form action="{{ route('client.index') }}" method="get">
                     <input placeholder="Search" name="search"
-                    class="appearance-none rounded-full border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                    class="appearance-none rounded-full border dark:border-gray-800 dark:bg-gray-700 dark:text-white border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </form>
             </div>
             <x-jet-button>
@@ -27,7 +27,7 @@
 
         </div>
         <div class="mx-auto overflow-x-auto">
-            <div class="inline-block border min-w-full shadow rounded-lg overflow-hidden">
+            <div class="inline-block border dark:border-gray-800 dark:text-white min-w-full shadow rounded-lg overflow-hidden">
                 <table class="min-w-full leading-normal">
                     <thead>
                         <x-tr>

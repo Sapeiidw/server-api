@@ -98,12 +98,12 @@
                                 </x-td>
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
-                                        <a href="{{ route('user.show',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-eye"></i></i>View</a>
-                                        <a href="{{ route('user.edit',$item->id) }}" class="text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
+                                        <a href="{{ route('user.show',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-eye"></i></i>View</a>
+                                        <a href="{{ route('user.edit',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
                                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" onclick="return confirm('Are u Sure!!')" class="text-red-900 flex flex-row items-center"><i class="fas fa-trash-alt mx-2"></i>Delete</button>
+                                            <button type="submit" onclick="return confirm('Are u Sure!!')" class="dark:text-red-500 text-red-900 flex flex-row items-center"><i class="fas fa-trash-alt mx-2"></i>Delete</button>
                                         </form>
                                     </div>
                                 </x-td>

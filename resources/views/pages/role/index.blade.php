@@ -66,7 +66,7 @@
                                     </x-td>
                                     <x-td>
                                         <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
-                                            <a href="{{ route('role.edit', $item->id) }}" class="text-blue-800 flex flex-row items-center">
+                                            <a href="{{ route('role.edit', $item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                                 <i class="fas fa-pen mx-2"></i>
                                                 Edit
                                             </a>
@@ -74,7 +74,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                            class="text-red-900 flex flex-row items-center"
+                                            class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                                 onclick="return confirm('are you sure?!')">
                                                 <i class="fas fa-trash-alt mx-2"></i>
                                                 Delete
