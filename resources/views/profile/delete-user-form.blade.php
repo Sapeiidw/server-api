@@ -1,17 +1,17 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Delete Account') }}
+        <x-title value="{{ __('Delete Account') }}"/>
     </x-slot>
 
     <x-slot name="description">
         <div class="px-2 text-gray-600 ">
-            {{ __('Permanently delete your account.') }}
+            <x-text value="{{ __('Permanently delete your account.') }}"/>
         </div>
     </x-slot>
 
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            <x-text value="{{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}"/>
         </div>
 
         <div class="flex justify-end mt-5">
@@ -25,13 +25,13 @@
             <x-jet-dialog-modal wire:model="confirmingUserDeletion">
                 <div class=" justify-end">
                     <x-slot name="title">
-                        {{ __('Delete Account') }}
+                        <x-title value="{{ __('Delete Account') }}"/>
                     </x-slot>
                 </div>
 
 
                 <x-slot name="content">
-                    {{ __('Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                    <x-text value="{{ __('Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}"/>
 
                     <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
                         <x-jet-input type="password" class="mt-1 block w-3/4"

@@ -11,7 +11,7 @@
             <div>
 
             </div>
-            <div class=" bg-white flex items-center m-1 mt-2 p-2 rounded-xl">
+            <div class="dark:bg-gray-700 dark:text-white bg-white flex items-center m-1 mt-2 p-2 rounded-xl">
                 <div class="flex-shrink-0 w-30 h-30">
                     <img class="w-full h-full rounded-full"
                         src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name

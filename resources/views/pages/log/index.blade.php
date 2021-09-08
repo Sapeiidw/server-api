@@ -18,7 +18,7 @@
                 </span>
                 <form class="w-full" action="{{ route('log.index') }}" method="get">
                     <input placeholder="Search" name="search"
-                    class="appearance-none rounded-full dark:border-gray-800 dark:bg-gray-700 border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                    class="appearance-none rounded-full dark:border-gray-800 dark:bg-gray-700 dark:text-white border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </form>
             </div>
 
@@ -73,7 +73,7 @@
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-10 justify-between ml-2">
                                         <a href="{{ route('log.show', $item->id) }}"
-                                            class="text-blue-800 flex flex-row items-center">
+                                            class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye"></i>
                                             View
                                         </a>
@@ -81,7 +81,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                        class="text-red-900 flex flex-row items-center"
+                                        class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                             onclick="return confirm('are you sure?!')">
                                             <i class="fas fa-trash-alt mx-2"></i>
                                             Delete

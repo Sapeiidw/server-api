@@ -5,7 +5,7 @@
             <div class="flex justify-between items-center mx-auto h-24">
                 <div class="flex">
                     <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center">
+                    <div class="flex-shrink-0 flex items-center dark:text-white">
                         <a href="{{ route('home') }}">
                             <x-jet-application-mark class="block h-9 w-auto" />
                         </a>
@@ -13,7 +13,7 @@
                     @role("super-admin|admin")
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link class=" lg:text-base font-medium" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*','log.*','client.*')">
+                        <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*','log.*','client.*')">
                             {{ __('Admin') }}
                         </x-jet-nav-link>
                     </div>
@@ -72,7 +72,7 @@
                     @endif --}}
 
                     <!-- Settings Dropdown -->
-                    <div class="ml-4 relative flex items-center">
+                    <div class="ml-4 relative flex items-center dark:text-white">
                         <!-- component -->
                         <x-switcher></x-switcher>
                         <x-jet-dropdown align="right" width="48">

@@ -13,7 +13,7 @@
                     @csrf
                     @method('put')
                     <div class="mt-4">
-                        <x-jet-label for="email" value="Name" />
+                        <x-jet-label for="name" value="Name" />
                         <x-jet-input class="block w-full mt-1" type="text" name="name" value="{{ $user->name }}"/>
                         @error('name')
                             <span class="text-red-900 p-2">{{ $message }}</span>

@@ -16,9 +16,7 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div>
-                <h1 class="font-semibold text-xl text-gray-600">
-                    Sign in
-                </h1>
+                <x-title value="{{ __('Sign in') }}"/>
             </div>
 
             <div class="my-4 ">
@@ -29,22 +27,23 @@
                 <x-jet-input placeholder="Password" id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
-            <div class="flex justify-between items-center mt-4 mb-12">
-                <label for="remember_me" class="flex items-center">
+            <div class="flex justify-start items-center mt-4 mb-20">
+                <label for="remember_me" class="flex items-center mr-2">
                     <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+
                 </label>
+                <x-text value="{{ __('Remember me') }}"/>
             </div>
 
             <div class="flex items-center justify-between mt-4">
                 <div class="flex flex-col">
                     @if (Route::has('password.request'))
-                <a class="underline text-sm text-red-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                <a class="underline text-sm dark:text-red-500 text-red-600 hover:text-gray-900" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
                 @endif
                 <a class=" flex-row underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                    {{ __('Dont have an account? Register') }}
+                    <x-text value="{{ __('Dont have an account? Register') }}"/>
                 </a>
                 </div>
 
