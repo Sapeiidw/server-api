@@ -23,36 +23,45 @@
 
         </style>
 
-    </head>
-    <body >
-        <div class="min-h-screen ">
-                    <div class="relative flex justify-center min-h-screen dark:bg-gray-900 sm:items-center sm:pt-0">
-                        <div class="flex flex-row items-center sm:px-6 lg:px-8">
-                            <div class="flex-none pt-8 sm:pt-0 mr-28">
-                                <div class="ml-4 mb-10">
-                                    <div class="ml-5">
-                                        <x-jet-authentication-card-logo />
-                                    </div>
-                                    <div class="mt-3">
-                                        <span class="text-xl text-gray-500">{{ __('Oops! Something went wrong') }}</span>
-                                    </div>
-                                </div>
-                                <div class="px-4 text-lg text-gray-500">
-                                    <span class="text-lg text-gray-500">{{ __('With error code') }}</span>
-                                    @yield('code')
-                                </div>
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @livewireStyles
 
-                                <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
-                                    @yield('message')
-                                </div>
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" async></script>
+
+    </head>
+    <body class="antialiased dark:bg-gray-800 dark:text-white"
+    class="transition ease-in-out duration-500"
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
+    >
+        <div class="min-h-screen ">
+            <div class="relative flex justify-center min-h-screen dark:bg-gray-900 sm:items-center sm:pt-0">
+                <div class="flex flex-row items-center sm:px-6 lg:px-8">
+                    <div class="flex-none pt-8 sm:pt-0 mr-28">
+                        <div class="ml-4 mb-10">
+                            <div class="ml-5">
+                                <x-jet-authentication-card-logo />
                             </div>
-                            <div class="ml-52 flex-row-reverse">
-                                @yield('image')
+                            <div class="mt-3">
+                                <span class="text-xl text-gray-500">{{ __('Oops! Something went wrong') }}</span>
                             </div>
                         </div>
+                        <div class="px-4 text-lg text-gray-500">
+                            <span class="text-lg text-gray-500">{{ __('With error code') }}</span>
+                            @yield('code')
+                        </div>
+
+                        <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
+                            @yield('message')
+                        </div>
                     </div>
-                {{-- </div>
-            </div> --}}
+                    <div class="ml-52 flex-row-reverse">
+                        @yield('image')
+                    </div>
+                </div>
+            </div>
         </div>
 
     </body>
