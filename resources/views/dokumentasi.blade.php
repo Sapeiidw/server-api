@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Dokumnetasi')
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dokumnetasi') }}
@@ -33,7 +34,7 @@
                 <h1 class="text-3xl font-bold my-2 capitalize">
                     <span class="text-indigo-500">#</span>
                     Instalation</h1>
-                <p class="my-2">Untuk menggunakan sistem SSO pada aplikasi anda, anda tidak perlu menginstall package apapun, yang anda butuhkan hanyalah 
+                <p class="my-2">Untuk menggunakan sistem SSO pada aplikasi anda, anda tidak perlu menginstall package apapun, yang anda butuhkan hanyalah
                     <code class="text-indigo-500 font-medium">Menambah kolom sso_id apda table users, SSOController, Route untuk memanggil fungsi SSOController, dan SSO_ID dan SSO_Secret yang akan disimpan pada file .env yang diperoleh setelah mendaftarkan Client (aplikasi anda) di <a href="sso.itk.ac.id" class="text-indigo-500">sso.itk.ac.id</a></code>. Oke untuk memulai silahkan buat controller baru dan beri nama SSOControllers</p>
                 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
 php artisan make:controller SSOControllers</pre>
