@@ -16,6 +16,9 @@
                         <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*','log.*','client.*')">
                             {{ __('Admin') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('dokumentasi') }}" :active="request()->routeIs('dokumentasi')">
+                            {{ __('Dokumentasi') }}
+                        </x-jet-nav-link>
                     </div>
                     @endrole
                 </div>
@@ -92,6 +95,9 @@
         <div class="pt-2 pb-3 space-y-1 ">
             <x-jet-responsive-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*')">
                 {{ __('Admin') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('dokumentasi') }}" :active="request()->routeIs('dokumentasi')">
+                {{ __('Dokumentasi') }}
             </x-jet-responsive-nav-link>
         </div>
 
