@@ -456,7 +456,13 @@
             }
         </style>
     </head>
-    <body class="antialiased font-sans">
+    <body
+    class="antialiased dark:bg-gray-800 dark:text-white"
+    class="transition ease-in-out duration-500"
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
+    >
         <div class="md:flex min-h-screen">
             <div class="w-full md:w-1/2 bg-white flex items-center justify-center">
                 <div class="max-w-sm m-8">

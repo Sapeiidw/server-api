@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800">
     <!-- Primary Navigation Menu -->
     <div class="shadow">
-        <div class="px-6 sm:px-10 lg:px-12">
+        <div class="px-6 sm:px-8 lg:px-9">
             <div class="flex justify-between items-center mx-auto h-24">
                 <div class="flex">
                     <!-- Logo -->
