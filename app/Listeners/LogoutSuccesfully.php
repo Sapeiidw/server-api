@@ -26,10 +26,8 @@ class LogoutSuccesfully
      */
     public function handle(Logout $event)
     {
-        $event->subject = 'logout';
-        $event->description = 'logout successfully';
-        activity($event->subject)
+        activity()
         ->by(auth()->user())
-        ->log($event->description);
+        ->log('logout successfully');
     }
 }

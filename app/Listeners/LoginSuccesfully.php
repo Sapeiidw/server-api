@@ -26,10 +26,8 @@ class LoginSuccesfully
      */
     public function handle(Login $event)
     {
-        $event->subject = 'login';
-        $event->description = 'login successfully';
-        activity($event->subject)
+        activity()
         ->by($event->user)
-        ->log($event->description);
+        ->log('login successfully');
     }
 }

@@ -34,10 +34,22 @@
                     <span class="text-indigo-500">#</span>
                     Instalation</h1>
                 <p class="my-2">Untuk menggunakan sistem SSO pada aplikasi anda, anda tidak perlu menginstall package apapun, yang anda butuhkan hanyalah 
-                    <code class="text-indigo-500 font-medium">Menambah kolom sso_id apda table users, SSOController, Route untuk memanggil fungsi SSOController, dan SSO_ID dan SSO_Secret yang akan disimpan pada file .env yang diperoleh setelah mendaftarkan Client (aplikasi anda) di <a href="sso.itk.ac.id" class="text-indigo-500">sso.itk.ac.id</a></code>. Oke untuk memulai silahkan buat controller baru dan beri nama SSOControllers</p>
+                    <code class="text-indigo-500 font-medium">Menambah kolom sso_id apda table users, SSOController, Route untuk memanggil fungsi SSOController, dan SSO_ID dan SSO_Secret yang akan disimpan pada file .env yang diperoleh setelah mendaftarkan Client (aplikasi anda) di <a href="sso.itk.ac.id" class="text-indigo-500">sso.itk.ac.id</a></code>.</p>
+                <p class="my-2">Untuk menambah column sso_id pada table user buatlah migration dulu</p>
+                <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">php artisan make:migration add_sso_id_to_users</pre>
+                <p class="my-2">buka migration yang baru dibuat tadi dan tambahkan line berikut :</p>
                 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
-php artisan make:controller SSOControllers</pre>
-                <p>pada <code class="text-indigo-500 font-medium">App\Http\Controllers\SSOController</code> buatlah fungsi <code class="bg-indigo-200 dark:bg-indigo-500 p-1 rounded">redirect()</code> untuk melakukan authorize ke SSO server</p>
+public function up()
+{
+    Schema::table('users', function (Blueprint $table) {
+        $table->integer('sso_id')->nullable()->unique();
+        $table->index('sso_id');
+    });
+}
+</pre>
+                <p class="my2">Oke selanjutnya buat SSOControllers dengan metode sebagai berikut :</p>
+                <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">php artisan make:controller SSOControllers</pre>
+                <p class="my-2">pada <code class="text-indigo-500 font-medium">App\Http\Controllers\SSOController</code> buatlah fungsi <code class="bg-indigo-200 dark:bg-indigo-500 p-1 rounded">redirect()</code> untuk melakukan authorize ke SSO server</p>
                 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
 public function redirect(Request $request)
 {
@@ -126,7 +138,9 @@ public function login_with_sso(Request $request)
         Auth::login($newUser);
         // Redirect setelah login
         return redirect('/dashboard');
-    </pre>
+    }
+}
+</pre>
             </div>
 
             <div id="configuration" class="lg:w-3/4 my-8">
@@ -170,7 +184,137 @@ SSO_URL=http://sso.itk.ac.id // Ini harus url SSO ITK
                 <h1 class="text-3xl font-bold my-2 capitalize">
                     <span class="text-indigo-500">#</span>
                     logging sso account</h1>
-                <p class="my-2">SSO ITK adalah sistem Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus at et ducimus nemo. Corrupti ea nostrum, quos magnam error vel quis odio nihil alias similique nam asperiores pariatur facilis id voluptates minima ex tempore non ullam fuga, doloribus eveniet! Itaque rerum corrupti impedit perspiciatis laborum necessitatibus eos distinctio recusandae dignissimos delectus suscipit reprehenderit officia ut praesentium laboriosam doloremque saepe voluptatem iure illo odio repellendus culpa, et accusantium id. Earum odio reprehenderit amet magni adipisci expedita libero explicabo soluta quam dicta velit distinctio corporis natus quisquam voluptatem eligendi, itaque ipsam exercitationem mollitia quaerat placeat voluptatum, praesentium eos officiis. Optio, itaque obcaecati?</p>
+                <p class="my-2">
+                    Untuk mencatat log User dari akun SSO ITK di setiap client maka ada beberapa konfigurasi tambahan yang harus dibuat. Disini saya sarankan menggunakan package dari Spatie yaitu spatie/laravel-activitylog. Cara kerjanya spatie/laravel-activitylog akan mendeteksi login, logout, dan perubahan pada models yang hanya dilakukan oleh akun SSO ITK. 
+                </p>
+                <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">composer require spatie/laravel-activitylog</pre>
+                <p class="my-2">
+                    Secara default package ini akan secara otomatis terdaftar di service provider.
+                    Selanjutnya publish file confignya.
+                </p>
+                <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">php artisan vendor:publish --provider="Spatie\Activitylog\ActivitylogServiceProvider" --tag="config"</pre>
+                <p class="my-2">
+                    Kemudian pada config/activitylog.php ganti default log name menjadi nama Client (aplikasi anda).
+                </p>
+                <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+/*
+* If no log name is passed to the activity() helper
+* we use this default log name.
+*/
+'default_log_name' => 'Client',
+</pre>
+<p class="my-2">
+    Untuk menyimpan log ke database SSO ITK buatlah koneksi baru seperti berikut di file config/database.php:
+</p>
+<pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+'log' => [
+    'driver' => 'mysql',
+    'url' => env('LOG_DB_URL'),
+    'host' => env('LOG_DB_HOST', '127.0.0.1'),
+    'port' => env('LOG_DB_PORT', '3306'),
+    'database' => env('LOG_DB_DATABASE', 'forge'),
+    'username' => env('LOG_DB_USERNAME', 'forge'),
+    'password' => env('LOG_DB_PASSWORD', ''),
+    'unix_socket' => env('LOG_DB_SOCKET', ''),
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'prefix' => '',
+    'prefix_indexes' => true,
+    'strict' => true,
+    'engine' => null,
+    'options' => extension_loaded('pdo_mysql') ? array_filter([
+        PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+    ]) : [],
+],
+</pre>
+<p class="my-2">
+Kemudian tambhakan code berikut di file .env
+</p>
+<pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+ACTIVITY_LOGGER_DB_CONNECTION=log
+LOG_DB_HOST=127.0.0.1
+LOG_DB_PORT=3306
+LOG_DB_DATABASE=server_api  //nama database sso.itk.ac.id
+LOG_DB_USERNAME=root        //username database sso.itk.ac.id
+LOG_DB_PASSWORD=            //password database sso.itk.ac.id
+</pre>
+<p class="my-2">
+    Untuk mencatat log login dan logout diperlukan event listener. Oleh karena itu buat 2 event listener dengan cara seperti berikut:
+</p>
+<pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+php artisan make:listener LoginSuccesfully
+dan
+php artisan make:listener LogoutSuccesfully
+</pre>
+<p class="my-2">
+    App/Listeners/LoginSuccesfully.php
+</p>
+<pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+use Illuminate\Auth\Events\Login;
+
+public function handle(Login $event)
+{
+    if ($event->user->sso_id) {
+        activity()
+        ->tap(function(Activity $activity) {
+            $activity->causer_id = auth()->user()->sso_id;
+        })
+        ->log('login successfully');
+    }
+}
+</pre>
+<p class="my-2">
+    App/Listeners/LogoutSuccesfully.php
+</p>
+<pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+use Illuminate\Auth\Events\Logout;
+
+public function handle(Logout $event)
+{
+    if ($event->user->sso_id) {
+        activity()
+        ->tap(function(Activity $activity) {
+            $activity->causer_id = auth()->user()->sso_id;
+        })
+        ->log('logout successfully');
+    }
+}
+</pre>
+<p class="my-2">
+    Kemudian untuk mengaktifkan Login dan Logout Listener maka harus didaftarkan pada App/Providers/EnventServiceProvider
+</p>
+<pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+protected $listen = [
+    Registered::class => [
+        SendEmailVerificationNotification::class,
+    ],
+    'Illuminate\Auth\Events\Login' => ['App\Listeners\LoginSuccesfully'],
+    'Illuminate\Auth\Events\Logout' => ['App\Listeners\LogoutSuccesfully'],
+];
+</pre>
+<p class="my-2">
+    Kemudian untuk mendeteksi perubahan seperti create, update, delete pada sebuah model maka harus mengimplementasikan kode berikut pada model tersebut. Contoh kita gunakan model User.
+</p>
+<pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+use Spatie\Activitylog\Contracts\Activity;
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class User extends Authenticatable
+{
+    use LogsActivity;
+    
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "This user has been {$eventName}";
+    }
+    public function tapActivity(Activity $activity)
+    {
+        $activity->causer_id = auth()->user()->sso_id;
+    }
+    protected static $logAttributes = ['name', 'email', 'password',]; // ganti dengan atribute yang anda butuhkan
+    protected static $logOnlyDirty = true;
+}
+</pre>
             </div>
         </div>
     </div>
