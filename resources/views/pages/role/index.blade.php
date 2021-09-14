@@ -42,10 +42,12 @@
                                     <i class="fas fa-id-badge mr-2"></i>
                                     Permissions
                                 </x-th>
+                                @can('update-role','delete-role')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
                                     Action
-                                </x-th>
+                                </x-th>    
+                                @endcan
                             </x-tr>
                         </thead>
                         <tbody>
@@ -64,12 +66,16 @@
                                         @endforeach
                                         </div>
                                     </x-td>
+                                    @can('update-role','delete-role')
                                     <x-td>
                                         <div class="flex sm:flex-row flex-col w-1/5 justify-between ml-2">
+                                            @can('update-role')
                                             <a href="{{ route('role.edit', $item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                                 <i class="fas fa-pen mx-2"></i>
                                                 Edit
                                             </a>
+                                            @endcan
+                                            @can('delete-role')
                                             <form action="{{ route('role.destroy', $item->id) }}" method="post" class="relative inline-block">
                                             @csrf
                                             @method('DELETE')
@@ -79,9 +85,11 @@
                                                 <i class="fas fa-trash-alt mx-2"></i>
                                                 Delete
                                             </button>
+                                            @endcan
                                             </form>
                                         </div>
                                     </x-td>
+                                    @endcan
                                 </x-tr>
                             @endforeach
                         </tbody>
