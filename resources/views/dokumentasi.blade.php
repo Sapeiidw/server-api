@@ -35,7 +35,7 @@
                     <span class="text-indigo-500">#</span>
                     Instalation</h1>
                 <p class="my-2">Untuk menggunakan sistem SSO pada aplikasi anda, anda tidak perlu menginstall package apapun, yang anda butuhkan hanyalah 
-                    <code class="text-indigo-500 font-medium">Menambah kolom sso_id apda table users, SSOController, Route untuk memanggil fungsi SSOController, dan SSO_ID dan SSO_Secret yang akan disimpan pada file .env yang diperoleh setelah mendaftarkan Client (aplikasi anda) di <a href="sso.itk.ac.id" class="text-indigo-500">sso.itk.ac.id</a></code>.</p>
+                    <code class="text-indigo-500 font-medium">Menambah kolom sso_id apda table users, SSOControllers, Route untuk memanggil fungsi SSOControllers, dan SSO_ID dan SSO_Secret yang akan disimpan pada file .env yang diperoleh setelah mendaftarkan Client (aplikasi anda) di <a href="sso.itk.ac.id" class="text-indigo-500">sso.itk.ac.id</a></code>.</p>
                 <p class="my-2">Untuk menambah column sso_id pada table user buatlah migration dulu</p>
                 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">php artisan make:migration add_sso_id_to_users</pre>
                 <p class="my-2">buka migration yang baru dibuat tadi dan tambahkan line berikut :</p>
@@ -48,9 +48,25 @@ public function up()
     });
 }
 </pre>
+                <p class="my2">Oke selanjutnya jangan lupa tambahkan sso_id di bagian fillable model user</p>
+                <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
+namespace App\Models;
+
+class User extends Authenticatable
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name', 'email', 'password', 'sso_id'
+    ];
+}
+</pre>
                 <p class="my2">Oke selanjutnya buat SSOControllers dengan metode sebagai berikut :</p>
                 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">php artisan make:controller SSOControllers</pre>
-                <p class="my-2">pada <code class="text-indigo-500 font-medium">App\Http\Controllers\SSOController</code> buatlah fungsi <code class="bg-indigo-200 dark:bg-indigo-500 p-1 rounded">redirect()</code> untuk melakukan authorize ke SSO server</p>
+                <p class="my-2">pada <code class="text-indigo-500 font-medium">App\Http\Controllers\SSOControllers</code> buatlah fungsi <code class="bg-indigo-200 dark:bg-indigo-500 p-1 rounded">redirect()</code> untuk melakukan authorize ke SSO server</p>
                 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
 public function redirect(Request $request)
 {
@@ -148,13 +164,13 @@ public function login_with_sso(Request $request)
                 <h1 class="text-3xl font-bold my-2 capitalize">
                     <span class="text-indigo-500">#</span>
                     Configuration</h1>
-                    <p>Agar <code class="text-indigo-500 font-medium">App\Http\Controllers\SSOController</code> dapat berfungsi buat lah route pada <code class="bg-indigo-200 dark:bg-indigo-500 p-1 rounded">web.php</code> untuk memanggil fungsi-fungsi yang sudah dibuat tadi.</p>
+                    <p>Agar <code class="text-indigo-500 font-medium">App\Http\Controllers\SSOControllers</code> dapat berfungsi buat lah route pada <code class="bg-indigo-200 dark:bg-indigo-500 p-1 rounded">web.php</code> untuk memanggil fungsi-fungsi yang sudah dibuat tadi.</p>
                     <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
-use App\Http\Controllers\SSOController;
+use App\Http\Controllers\SSOControllers;
 
-Route::get("/redirect", [SSOController::class,'redirect'])->name('redirect');
-Route::get("/callback", [SSOController::class,'callback'])->name('callback');
-Route::get("/login_with_sso", [SSOController::class,'login_with_sso'])->name('login_with_sso');
+Route::get("/redirect", [SSOControllers::class,'redirect'])->name('redirect');
+Route::get("/callback", [SSOControllers::class,'callback'])->name('callback');
+Route::get("/login_with_sso", [SSOControllers::class,'login_with_sso'])->name('login_with_sso');
 </pre>
 
             </div>
@@ -252,6 +268,7 @@ php artisan make:listener LogoutSuccesfully
 </p>
 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
 use Illuminate\Auth\Events\Login;
+use Spatie\Activitylog\Contracts\Activity;
 
 public function handle(Login $event)
 {
@@ -269,7 +286,7 @@ public function handle(Login $event)
 </p>
 <pre class="flex w-full rounded p-3 my-3 bg-indigo-200 dark:bg-indigo-500 overflow-x-auto">
 use Illuminate\Auth\Events\Logout;
-
+use Spatie\Activitylog\Contracts\Activity;
 public function handle(Logout $event)
 {
     if ($event->user->sso_id) {
@@ -310,7 +327,12 @@ class User extends Authenticatable
     }
     public function tapActivity(Activity $activity)
     {
-        $activity->causer_id = auth()->user()->sso_id;
+        // matikan logging jika dia tidak terdaaftar dengan akun sso itk
+        if (auth()->user() == null and !isset(auth()->user()->sso_id)) {
+            activity()->disableLogging();
+        } else {
+            $activity->causer_id = auth()->user()->sso_id;
+        }
     }
     protected static $logAttributes = ['name', 'email', 'password',]; // ganti dengan atribute yang anda butuhkan
     protected static $logOnlyDirty = true;
