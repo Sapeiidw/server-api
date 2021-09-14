@@ -21,9 +21,11 @@
                         class="appearance-none rounded-full border dark:border-gray-800 dark:text-white dark:bg-gray-700 border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                     </form>
                 </div>
+                @can('create-permission')
                 <x-jet-button>
                     <a href="{{ route('permission.create') }}" >Add Permission</a>
                 </x-jet-button>
+                @endcan
 
             </div>
             <div class="mx-auto overflow-x-auto">
@@ -38,10 +40,12 @@
                                     <i class="fas fa-id-badge mr-1"></i>
                                     Permission
                                 </x-th>
+                                @can('update-permission','delete-permission')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
                                     Action
                                 </x-th>
+                                @endcan
                             </x-tr>
                         </thead>
                         <tbody>
@@ -55,13 +59,17 @@
                                             <x-badge>{{ $item->name }}</x-badge>
                                         </div>
                                     </x-td>
+                                    @can('update-permission','delete-permission')
                                     <x-td>
                                         <div class="flex sm:flex-row flex-col w-1/6 justify-between ml-2">
+                                            @can('delete-permission')
                                             <a href="{{ route('permission.edit', $item->id) }}"
                                                 class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                                 <i class="fas fa-pen mx-2"></i>
                                                 Edit
                                             </a>
+                                            @endcan
+                                            @can('delete-permission')
                                             <form action="{{ route('permission.destroy', $item->id) }}" method="post" class="relative inline-block">
                                             @csrf
                                             @method('DELETE')
@@ -72,8 +80,10 @@
                                                 Delete
                                             </button>
                                             </form>
+                                            @endcan
                                         </div>
                                     </x-td>
+                                    @endcan
                                 </x-tr>
                             @endforeach
                         </tbody>

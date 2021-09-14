@@ -42,10 +42,12 @@
                                 <i class="fas fa-calendar-day mr-1"></i>
                                 Date
                             </x-th>
+                            @can('read-log','delete-log')
                             <x-th>
                                 <i class="fas fa-edit mr-1"></i>
                                 Action
                             </x-th>
+                            @endcan
                         </x-tr>
                     </thead>
                     <tbody>
@@ -69,13 +71,17 @@
                                         {{ $item->created_at }}
                                     </div>
                                 </x-td>
+                                @can('read-log','delete-log')
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col sm:w-1/6 justify-between ml-2">
+                                        @can('read-log')
                                         <a href="{{ route('log.show', $item->id) }}"
                                             class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye mx-2"></i>
                                             View
                                         </a>
+                                        @endcan
+                                        @can('delete-log')
                                         <form action="{{ route('log.destroy', $item->id) }}" method="post" class="relative inline-block">
                                         @csrf
                                         @method('DELETE')
@@ -86,8 +92,10 @@
                                             Delete
                                         </button>
                                         </form>
+                                        @endcan
                                     </div>
                                 </x-td>
+                                @endcan
                             </x-tr>
                         @endforeach
                     </tbody>

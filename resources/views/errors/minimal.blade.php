@@ -17,7 +17,7 @@
 
         <style>
             body {
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Quicksand';
 
             }
 

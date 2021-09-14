@@ -52,10 +52,12 @@
                                     <i class="fas fa-user-tag mr-1"></i>
                                     Role
                                 </x-th>
+                                @can('read-user','update-user','delete-role')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
                                     Action
                                 </x-th>
+                                @endcan
                             </x-tr>
                         </thead>
                         <tbody>
@@ -96,17 +98,25 @@
                                         <x-badge>{{ $item->roles->first()->name ?? '?'}}</x-badge>
                                     </div>
                                 </x-td>
+                                @can('read-user','update-user','delete-role')
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-1/6 justify-between ml-2">
+                                        @can('read-user')
                                         <a href="{{ route('user.show',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-eye mx-2"></i></i>View</a>
+                                        @endcan
+                                        @can('update-user')
                                         <a href="{{ route('user.edit',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
+                                        @endcan
+                                        @can('delete-user')
                                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" onclick="return confirm('Are u Sure!!')" class="dark:text-red-500 text-red-900 flex flex-row items-center"><i class="fas fa-trash-alt mx-2"></i>Delete</button>
                                         </form>
+                                        @endcan
                                     </div>
                                 </x-td>
+                                @endcan
                             </x-tr>
                             @empty
                             <x-tr>

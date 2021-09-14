@@ -22,9 +22,11 @@
                         class="appearance-none rounded-full dark:border-gray-800 dark:bg-gray-700 dark:text-white border border-gray-400 border-b block sm:pt-2 pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                     </form>
                 </div>
+                @can('create-role')
                 <x-jet-button>
                     <a href="{{ route('role.create') }}" >Add Role</a>
                 </x-jet-button>
+                @endcan
             </div>
             <div class="pt-4 mx-auto overflow-x-auto">
                 <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full rounded-2xl overflow-hidden">
@@ -46,7 +48,7 @@
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
                                     Action
-                                </x-th>    
+                                </x-th>
                                 @endcan
                             </x-tr>
                         </thead>
