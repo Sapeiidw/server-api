@@ -41,7 +41,7 @@
                 <div class="flex flex-row items-center sm:px-6 lg:px-8">
                     <div class="flex-none pt-8 sm:pt-0 mr-28">
                         <div class="ml-4 mb-10">
-                            <div class="ml-5">
+                            <div class="ml-5 w-28">
                                 <x-jet-authentication-card-logo />
                             </div>
                             <div class="mt-3">

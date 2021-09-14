@@ -43,11 +43,14 @@
                     <x-badge>{{$log->causer->roles->first()->name ?? '?'}}</x-badge>
                 </div>
                 <x-jet-section-border />
-                <div class="flex ml-3 items-center justify-start">
+                <div class="flex ml-5 items-center justify-start">
                     {{ $log->description }}
                 </div>
                 <x-jet-section-border />
-            </div>
+                <div class="flex ml-5 items-center justify-start">
+                    {{ $log->created_at }}
+                </div>
+                <x-jet-section-border />
             </div>
         </x-boxtable>
     </div>
