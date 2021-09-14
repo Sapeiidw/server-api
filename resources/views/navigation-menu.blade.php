@@ -7,20 +7,22 @@
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center dark:text-white">
                         <a href="{{ route('home') }}">
-                            <x-jet-application-mark class="block h-9 w-auto" />
+                            <x-jet-application-mark class="block h-28 w-auto" />
                         </a>
                     </div>
-                    @role("super-admin|admin")
-                    <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*','log.*','client.*')">
-                            {{ __('Admin') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('dokumentasi') }}" :active="request()->routeIs('dokumentasi')">
-                            {{ __('Dokumentasi') }}
-                        </x-jet-nav-link>
+                    <div class="flex w-auto items-center">
+                        @role("super-admin|admin")
+                        <!-- Navigation Links -->
+                        <div class="hidden h-9 space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*','log.*','client.*')">
+                                {{ __('Admin') }}
+                            </x-jet-nav-link>
+                            <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('dokumentasi') }}" :active="request()->routeIs('dokumentasi')">
+                                {{ __('Dokumentasi') }}
+                            </x-jet-nav-link>
+                        </div>
+                        @endrole
                     </div>
-                    @endrole
                 </div>
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <!-- Settings Dropdown -->

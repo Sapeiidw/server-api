@@ -5,6 +5,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Mail\OrderShipped;
 use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::view('/dokumentasi', 'dokumentasi')->name('dokumentasi');
+    Route::get('/email', function () {
+        return new OrderShipped();
+    });
     Route::get('/', function () {
         $client = Client::all();
         return view('client',compact('client'));
