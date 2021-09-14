@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
     <div id="top" class="absolute top-0"></div>
-    <a href="#top" class="w-14 h-14 flex justify-center items-center text-3xl rounded-full bg-indigo-500 text-white fixed bottom-2 right-2"><i class="fa fa-angle-up"></i></a>
+    <a href="#top" class="w-14 h-14 flex justify-center items-center text-3xl rounded-full bg-blue-500 dark:bg-indigo-500 text-white fixed bottom-2 right-2"><i class="fa fa-angle-up"></i></a>
     <div class="py-12 flex flex-col lg:flex-row w-full">
         <div class="w-full lg:w-1/5 lg:min-h-screen mx-auto my-2 px-2 flex flex-start flex-col">
             <a href="#introduction" class="text-md transition duration-200 ease-in-out hover:underline mx-2 p-2">Introduction</a>
