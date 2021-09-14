@@ -22,9 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::view('/dokumentasi', 'dokumentasi')->name('dokumentasi');
-    Route::get('/email', function () {
-        return new OrderShipped();
-    });
+    //tampilan email
+    // Route::get('/email', function () {
+    //     return new OrderShipped();
+    // });
     Route::get('/', function () {
         $client = Client::all();
         return view('client',compact('client'));
