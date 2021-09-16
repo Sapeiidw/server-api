@@ -35,17 +35,23 @@
                             <span class="text-red-900 p-2">{{ $message }}</span>
                         @enderror
                     </div>
-                    <input type="radio" name="visibility" id="public" value="public" {{ $client->visibility == 'public' ? "checked" : '' }} required>public
-                    <input type="radio" name="visibility" id="public" value="private" {{ $client->visibility == 'private' ? "checked" : '' }} required>private
-                    @error('visibility')
-                        <span class="text-red-900 p-2">{{ $message }}</span>
-                    @enderror
-                    <input type="file" name="thumbnail" id="">
-                    @error('thumbnail')
-                        <span class="text-red-900 p-2">{{ $message }}</span>
-                    @enderror
-                    <x-jet-button type="submit" class="mt-4">Update</x-jet-button>
-                    <x-jet-button type="reset" class="mt-4">Cancel</x-jet-button>
+                    <div class="mt-4 items-center">
+                        <input type="radio" name="visibility" id="public" value="public" class="mr-2" {{ $client->visibility == 'public' ? "checked" : '' }} required>Public
+                        <input type="radio" name="visibility" id="public" value="private" class="mx-2" {{ $client->visibility == 'private' ? "checked" : '' }} required>Private
+                        @error('visibility')
+                            <span class="text-red-900 p-2">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mt-4">
+                        <input type="file" name="thumbnail" id="">
+                        @error('thumbnail')
+                            <span class="text-red-900 p-2">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="flex mt-4 items-center justify-end">
+                        <x-jet-button type="submit" class="mt-4">Update</x-jet-button>
+                        <x-jet-button type="reset" class="ml-2 mt-4">Cancel</x-jet-button>
+                    </div>
                 </form>
             </div>
         </x-boxtable>

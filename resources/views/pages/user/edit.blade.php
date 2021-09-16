@@ -41,10 +41,13 @@
                             <span class="text-red-900 p-2">{{ $message }}</span>
                         @enderror
                     </div>
-                    {{-- @endrole --}}
 
-                    <x-jet-button type="submit" class="mt-4">Update</x-jet-button>
-                    <x-jet-button type="reset" class="mt-4">Cancel</x-jet-button>
+                    {{-- @endrole --}}
+                    <div class="flex mt-4 items-center justify-end">
+                        <x-jet-button type="submit" class="">Update</x-jet-button>
+                        <x-jet-button type="reset" class="ml-2">Cancel</x-jet-button>
+                    </div>
+
                 </form>
             </div>
         </x-boxtable>
