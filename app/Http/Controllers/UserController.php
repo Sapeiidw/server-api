@@ -61,12 +61,12 @@ class UserController extends Controller
             'password' => "required|min:8|confirmed",
         ]);
         $request->role = $request->role !== null ? $request->role : 'user';
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ])->syncRoles($request->role);
-
+        activity()->by(auth()->user())->withProperties($user)->log('This user has been created a user');
         return back()->with('success','Selamat user berhasil di buat!!');
     }
 
