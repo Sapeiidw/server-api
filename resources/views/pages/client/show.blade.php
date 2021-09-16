@@ -61,69 +61,68 @@
                         </x-tr>
                     </thead>
                     <tbody>
-                            <x-tr>
-                                <x-td>
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
-                                            <img class="w-full h-full rounded-full"
-                                                src="{{ $client->item ? asset('storage/'.$client->photo) : "https://ui-avatars.com/api/?name=".$client->name
-                                                }}"
-                                                alt="" />
-                                        </div>
-                                        <div class="ml-3">
-                                            {{ $client->name }}
-                                        </div>
+                        <x-tr>
+                            <x-td>
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 w-10 h-10">
+                                        <img class="w-full h-full rounded-full"
+                                            src="{{ $client->item ? asset('storage/'.$client->photo) : "https://ui-avatars.com/api/?name=".$client->name
+                                            }}"
+                                            alt="" />
                                     </div>
-                                </x-td>
-                                <x-td>
                                     <div class="ml-3">
-                                        Callback: <a class="text-blue-600">{{ $client->redirect }}</a> <br>
-                                        Redirect: <a class="text-blue-600">{{ $client->url }}</a>
+                                        {{ $client->name }}
                                     </div>
-                                </x-td>
+                                </div>
+                            </x-td>
+                            <x-td>
+                                <div class="ml-3">
+                                    Callback: <a class="text-blue-600">{{ $client->redirect }}</a> <br>
+                                    Redirect: <a class="text-blue-600">{{ $client->url }}</a>
+                                </div>
+                            </x-td>
 
-                                <x-td>
-                                    <div class="ml-3">
-                                        <a>{{ $client->id }}</a>
-                                    </div>
-                                </x-td>
-                                <x-td>
-                                    <div class="ml-3">
-                                        <a>{{ $client->secret }}</a>
-                                    </div>
-                                </x-td>
-                                <x-td>
-                                    <div class="ml-3">
-                                        <a>{{ $client->visibility }}</a>
-                                    </div>
-                                </x-td>
-                                @can('update-client','delete-client')
-                                <x-td>
-                                    <div class="flex sm:flex-row flex-col w-1/12 justify-between ml-2">
-                                        @can('update-client')
-                                        <a href="{{ route('client.edit', $client->id) }}"
-                                            class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
-                                            <i class="fas fa-pen mx-2"></i>
-                                            Edit
-                                        </a>
-                                        @endcan
-                                        @can('delete-client')
-                                        <form action="{{ route('client.destroy', $client->id) }}" method="post" class="relative inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                        class="dark:text-red-500 text-red-900 flex flex-row items-center"
-                                            onclick="return confirm('are you sure?!')">
-                                            <i class="fas fa-trash-alt mx-2"></i>
-                                            Delete
-                                        </button>
-                                        </form>
-                                        @endcan
-                                    </div>
-                                </x-td>
-                                @endcan
-                            </x-tr>
-
+                            <x-td>
+                                <div class="ml-3">
+                                    <a>{{ $client->id }}</a>
+                                </div>
+                            </x-td>
+                            <x-td>
+                                <div class="ml-3">
+                                    <a>{{ $client->secret }}</a>
+                                </div>
+                            </x-td>
+                            <x-td>
+                                <div class="ml-3">
+                                    <a>{{ $client->visibility }}</a>
+                                </div>
+                            </x-td>
+                            @can('update-client','delete-client')
+                            <x-td>
+                                <div class="flex sm:flex-row flex-col w-1/12 justify-between ml-2">
+                                    @can('update-client')
+                                    <a href="{{ route('client.edit', $client->id) }}"
+                                        class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
+                                        <i class="fas fa-pen mx-2"></i>
+                                        Edit
+                                    </a>
+                                    @endcan
+                                    @can('delete-client')
+                                    <form action="{{ route('client.destroy', $client->id) }}" method="post" class="relative inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                    class="dark:text-red-500 text-red-900 flex flex-row items-center"
+                                        onclick="return confirm('are you sure?!')">
+                                        <i class="fas fa-trash-alt mx-2"></i>
+                                        Delete
+                                    </button>
+                                    </form>
+                                    @endcan
+                                </div>
+                            </x-td>
+                            @endcan
+                        </x-tr>
                     </tbody>
                 </table>
             </div>
