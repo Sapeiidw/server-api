@@ -29,11 +29,11 @@
                 </div>
                 <div class="flex-none xl:w-1/3 ml-3">
                     <div class="flex items-center">
-                        Create at:
+                        Create at :
                         {{ $user->created_at }}
                     </div>
-                    <div class="flex items-center">
-                        Verified:
+                    <div class="flex items-center mt-6">
+                        Verified :
                         @if ($user->email_verified_at)
                             <i class="fas fa-check ml-7"></i>
                         @else
