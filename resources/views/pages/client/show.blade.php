@@ -21,10 +21,11 @@
                     class="appearance-none rounded-full border dark:border-gray-800 dark:bg-gray-700 dark:text-white border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </form>
             </div>
+            @can('create-client')
             <x-jet-button>
                 <a href="{{ route('client.create') }}" >Add Client</a>
             </x-jet-button>
-
+            @endcan
         </div>
         <div class="mx-auto overflow-x-auto">
             <div class="inline-block border dark:border-gray-800 dark:text-white min-w-full shadow rounded-2xl overflow-hidden">
@@ -51,16 +52,16 @@
                                 <i class="fas fa-id-badge mr-1"></i>
                                 Visibility
                             </x-th>
+                            @can('update-client','delete-client')
                             <x-th>
                                 <i class="fas fa-edit mr-1"></i>
                                 Action
                             </x-th>
+                            @endcan
                         </x-tr>
                     </thead>
                     <tbody>
-
                             <x-tr>
-
                                 <x-td>
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 w-10 h-10">
@@ -96,13 +97,17 @@
                                         <a>{{ $client->visibility }}</a>
                                     </div>
                                 </x-td>
+                                @can('update-client','delete-client')
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-1/12 justify-between ml-2">
+                                        @can('update-client')
                                         <a href="{{ route('client.edit', $client->id) }}"
                                             class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-pen mx-2"></i>
                                             Edit
                                         </a>
+                                        @endcan
+                                        @can('delete-client')
                                         <form action="{{ route('client.destroy', $client->id) }}" method="post" class="relative inline-block">
                                         @csrf
                                         @method('DELETE')
@@ -113,8 +118,10 @@
                                             Delete
                                         </button>
                                         </form>
+                                        @endcan
                                     </div>
                                 </x-td>
+                                @endcan
                             </x-tr>
 
                     </tbody>
