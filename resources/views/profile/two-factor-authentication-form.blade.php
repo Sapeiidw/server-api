@@ -20,8 +20,8 @@
             @endif
         </h3>
 
-        <div class="mt-3 max-w-xl text-sm text-gray-600">
-            <x-text for="" value="{{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}"/>
+        <div class="mt-3 w-full text-sm text-gray-600">
+            <x-text for="" value="{{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone Google Authenticator application.') }}"/>
         </div>
 
         @if ($this->enabled)
@@ -48,7 +48,7 @@
             @endif
         @endif
 
-        <div class="flex justify-end mt-5">
+        <div class="flex justify-end mt-6">
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
                     <x-jet-button type="button" wire:loading.attr="disabled">
