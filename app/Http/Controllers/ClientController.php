@@ -29,8 +29,16 @@ class ClientController extends Controller
         ->causedBy(auth()->user())
         ->log(':causer.name visited client page.');
 
-        $clients = Client::where('name','like',"%{$request->search}%")->paginate(20);
-        return view('pages.client.index', compact('clients'));
+        if(auth()->user()->roles->first()->name == 'super-admin'){
+            $clients = Client::where('name','like',"%{$request->search}%")->paginate(20);
+            return view('pages.client.index', compact('clients'));
+        } else {
+            $clients = Client::where([
+                ['user_id','=',auth()->user()->id],
+                ['name','like',"%{$request->search}%"]
+                ])->paginate(20);
+            return view('pages.client.index', compact('clients'));
+        }
     }
 
     /**
@@ -85,7 +93,11 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('pages.client.show', compact('client'));
+        if(auth()->user()->roles->first()->name == 'super-admin' or auth()->user()->id == $client->user_id){
+            return view('pages.client.show', compact('client'));
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -96,7 +108,11 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('pages.client.edit', compact('client'));
+        if(auth()->user()->roles->first()->name == 'super-admin' or auth()->user()->id == $client->user_id){
+            return view('pages.client.edit', compact('client'));
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -108,37 +124,41 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        $request->validate([
-            'name' => 'required|string|unique:oauth_clients,name,'.$client->id,
-            'redirect' => 'required|string|url|unique:oauth_clients,redirect,'.$client->id,
-            'url' => 'required|string|url|unique:oauth_clients,url,'.$client->id,
-            'thumbnail' => 'nullable|mimes:jpg,bmp,png|max:1024',
-            'visibility' => 'required|string',
-        ]);
-
-        if (request('thumbnail')) {
-            if (Storage::exists($client->thumbnail) ) {
-                Storage::delete($client->thumbnail);
+        if(auth()->user()->roles->first()->name == 'super-admin' or auth()->user()->id == $client->user_id){
+            $request->validate([
+                'name' => 'required|string|unique:oauth_clients,name,'.$client->id,
+                'redirect' => 'required|string|url|unique:oauth_clients,redirect,'.$client->id,
+                'url' => 'required|string|url|unique:oauth_clients,url,'.$client->id,
+                'thumbnail' => 'nullable|mimes:jpg,bmp,png|max:1024',
+                'visibility' => 'required|string',
+            ]);
+    
+            if (request('thumbnail')) {
+                if (Storage::exists($client->thumbnail) ) {
+                    Storage::delete($client->thumbnail);
+                }
+                $thumbnail = request()->file('thumbnail')->store('images/client');
             }
-            $thumbnail = request()->file('thumbnail')->store('images/client');
+            elseif ($client->thumbnail) {
+                $thumbnail = $client->thumbnail;
+            }
+            else {
+                $thumbnail = null;
+            }
+    
+            $client->update([
+                'name' => $request->name,
+                'slug'=> Str::slug($request->name),
+                'redirect' => $request->redirect,
+                'url' => $request->url,
+                'thumbnail' => $thumbnail,
+                'visibility' => $request->visibility,
+            ]);
+    
+           return back()->with('success','Client was Updated!!');
+        } else {
+            abort(403);
         }
-        elseif ($client->thumbnail) {
-            $thumbnail = $client->thumbnail;
-        }
-        else {
-            $thumbnail = null;
-        }
-
-        $client->update([
-            'name' => $request->name,
-            'slug'=> Str::slug($request->name),
-            'redirect' => $request->redirect,
-            'url' => $request->url,
-            'thumbnail' => $thumbnail,
-            'visibility' => $request->visibility,
-        ]);
-
-       return back()->with('success','Client was Updated!!');
     }
 
     /**
@@ -149,8 +169,12 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        Storage::delete($client->thumbnail);
-        $client->delete();
-        return redirect(route('client.index'))->with('success','Client was Deleted!!');
+        if(auth()->user()->roles->first()->name == 'super-admin' or auth()->user()->id == $client->user_id){
+            Storage::delete($client->thumbnail);
+            $client->delete();
+            return redirect(route('client.index'))->with('success','Client was Deleted!!');
+        } else {
+            abort(403);
+        }
     }
 }
