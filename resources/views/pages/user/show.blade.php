@@ -10,17 +10,20 @@
             <div class="dark:bg-gray-700 dark:text-white bg-white md:flex justify-between items-center m-1 mt-2 p-2 rounded-2xl overflow-y-hidden">
                 <div class="md:w-1/3 m-3 flex items-center">
                     <div class="flex-shrink-0">
-                        <img class="dark:bg-gray-700 rounded-full h-20 w-20 object-cover"
+                        <img class="dark:bg-gray-700 rounded-full h-24 w-24 object-cover"
                             src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name
                             }}"
                             alt="" />
                     </div>
-                    <div class=" ml-3 flex-none">
-                        <div class=" font-semibold">
+                    <div class="ml-3 flex-none">
+                        <div class="ml-2 font-semibold">
                             {{ $user->name }}
                         </div>
-                        <div>
+                        <div class="ml-2">
                             {{ $user->email }}
+                        </div>
+                        <div class="flex-none justify-start">
+                            <x-badge>{{ $user->roles->first()->name ?? '?'}}</x-badge>
                         </div>
                     </div>
                 </div>
@@ -38,9 +41,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="md:w-1/3 ml-3 justify-start">
-                    <x-badge>{{ $user->roles->first()->name ?? '?'}}</x-badge>
-                </div>
+
             </div>
             <div class="mx-auto pt-4 overflow-x-auto">
                 <div class="inline-block border dark:border-gray-900 min-w-full rounded-2xl overflow-hidden">

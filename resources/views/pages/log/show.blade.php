@@ -13,15 +13,18 @@
                                     alt="" />
                             </div>
                             <div class="ml-6 flex-none">
-                                <div class=" font-semibold text-3xl mb-4">
+                                <div class="ml-2 font-semibold text-3xl mb-4">
                                     {{ $log->causer->name }}
                                 </div>
-                                <div class="text-2xl">
+                                <div class="ml-2 text-2xl">
                                     {{ $log->causer->email }}
+                                </div>
+                                <div class="flex-none justify-start">
+                                    <x-badge>{{ $log->causer->roles->first()->name ?? '?'}}</x-badge>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-none ml-3 mt-1">
+                        <div class="flex-none w-1/3 ml-3 mt-1">
                             <div class="flex items-center">
                                 Create at:
                                 {{ $log->causer->created_at }}
@@ -35,9 +38,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="md:w-1/3 ml-3 justify-start mt-1">
-                            <x-badge>{{ $log->causer->roles->first()->name ?? '?'}}</x-badge>
-                        </div>
+
                     </div>
                 </div>
                 <x-jet-section-border />
