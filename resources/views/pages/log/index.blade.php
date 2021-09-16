@@ -31,6 +31,10 @@
                                 <i class="fas fa-hashtag"></i>
                             </x-th>
                             <x-th>
+                                <i class="fas fa-cogs mr-1"></i>
+                                Log Name
+                            </x-th>
+                            <x-th>
                                 <i class="fas fa-user mr-1"></i>
                                 Causer
                             </x-th>
@@ -55,6 +59,11 @@
                             <x-tr>
                                 <x-td>
                                     <p class="dark:text-white text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration + $logs->perPage() * ($logs->currentPage() -1 ) }}</p>
+                                </x-td>
+                                <x-td>
+                                    <div class="ml-3">
+                                        {{ $item->log_name}}
+                                    </div>
                                 </x-td>
                                 <x-td>
                                     <div class="ml-3">
