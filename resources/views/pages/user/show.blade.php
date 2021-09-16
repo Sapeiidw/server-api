@@ -9,8 +9,8 @@
         <x-boxtable>
             <div class="dark:bg-gray-700 dark:text-white bg-white md:flex justify-between items-center m-1 mt-2 p-2 rounded-2xl overflow-y-hidden">
                 <div class="md:w-1/3 m-3 flex items-center">
-                    <div class="flex-shrink-0 w-30 h-30">
-                        <img class="w-full h-full rounded-full"
+                    <div class="flex-shrink-0">
+                        <img class="dark:bg-gray-700 rounded-full h-20 w-20 object-cover"
                             src="{{ $user->profile_photo_url ?? "https://ui-avatars.com/api/?name=".$user->name
                             }}"
                             alt="" />
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex-none md:w-1/3 ml-3">
+                <div class="flex-none xl:w-1/3 ml-3">
                     <div class="flex items-center">
                         Create at:
                         {{ $user->created_at }}

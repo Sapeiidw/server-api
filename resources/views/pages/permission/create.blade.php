@@ -15,7 +15,7 @@
                     @csrf
                     <div class="mt-4">
                         <x-jet-input placeholder="Name"
-                        class="block w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
+                        class="block w-full border rounded-3xl dark:text-white dark:bg-gray-700 dark:border-gray-900 bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                         type="text" name="name" :value="old('name')"/>
                         @error('name')
                             <span class="text-red-900 p-2">{{ $message }}</span>
