@@ -59,7 +59,7 @@
                     <div class="mt-4">
                         <x-jet-label for="role" value="Role" />
                         <select name="role" id="role"
-                            class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" >
+                            class="block w-full rounded-3xl mt-3 shadow-sm border dark:text-white dark:bg-gray-700 dark:border-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" >
                             @foreach ($roles as $role)
                                 <option value="{{ $role }}">{{ $role }}</option>
                             @endforeach

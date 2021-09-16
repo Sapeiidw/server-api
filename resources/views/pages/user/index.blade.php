@@ -1,6 +1,5 @@
 <x-admin-layout>
     @section('title', 'User')
-    {{-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"> --}}
     <div class="w-4/5">
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -22,9 +21,11 @@
                         class="appearance-none rounded-full border dark:border-gray-800 dark:bg-gray-700 dark:text-white border-gray-400 border-b block sm:pt-2 pl-8 pr-6 py-2 w-full  bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                     </form>
                 </div>
+                @can('create-user')
                 <x-jet-button>
                     <a href="{{ route('user.create') }}" >Add User</a>
                 </x-jet-button>
+                @endcan
 
             </div>
             <div class="mx-auto pt-4 overflow-x-auto">
@@ -52,7 +53,7 @@
                                     <i class="fas fa-user-tag mr-1"></i>
                                     Role
                                 </x-th>
-                                @can('read-user','update-user','delete-role')
+                                @can('read-user','update-user','delete-user')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
                                     Action
@@ -98,7 +99,7 @@
                                         <x-badge>{{ $item->roles->first()->name ?? '?'}}</x-badge>
                                     </div>
                                 </x-td>
-                                @can('read-user','update-user','delete-role')
+                                @can('read-user','update-user','delete-user')
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-1/6 justify-between ml-2">
                                         @can('read-user')

@@ -22,7 +22,7 @@
                         @enderror
                     </div>
 
-                    <div class="flex dark:bg-gray-700 items-center justify-end mt-4">
+                    <div class="flex  items-center justify-end mt-4">
                         <x-jet-button class="ml-4">
                             {{ __('Create') }}
                         </x-jet-button>
