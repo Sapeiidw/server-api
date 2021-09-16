@@ -8,6 +8,9 @@
     </x-slot>
     <x-boxtable>
         <div class="flex justify-between sm:flex-row flex-col py-4 px-2">
+
+            <x-alert></x-alert>
+
             <div class="flex relative dark:text-white sm:w-3/4">
                 <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                     <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
@@ -26,7 +29,6 @@
                 <a href="{{ route('client.create') }}" >Add Client</a>
             </x-jet-button>
             @endcan
-
         </div>
         <div class="mx-auto overflow-x-auto">
             <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full shadow rounded-2xl overflow-hidden">
