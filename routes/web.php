@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -33,5 +34,6 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('role', RoleController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('client', ClientController::class);
+    Route::resource('domain', DomainController::class);
     Route::resource('log', LogController::class)->only(['index','destroy','show']);
 });

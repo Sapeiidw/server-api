@@ -63,7 +63,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_photo_url',
     ];
 
-    //only the `deleted` event will get logged automatically
     protected static $recordEvents = ['updated','deleted'];
 
     public function getDescriptionForEvent(string $eventName): string

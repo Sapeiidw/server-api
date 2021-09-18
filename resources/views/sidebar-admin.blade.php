@@ -33,6 +33,14 @@
             </x-sidelink>
         </div>
         <div class="flex py-3 justify-between">
+            <x-sidelink href="{{ route('domain.index') }}" :active="request()->routeIs('domain.*')">
+                <i class="text-xl fas fa-cogs m-2"></i>
+                <div class="">
+                    {{ __('Domain') }}
+                </div>
+            </x-sidelink>
+        </div>
+        <div class="flex py-3 justify-between">
             <x-sidelink href="{{ route('log.index') }}" :active="request()->routeIs('log.*')">
                 <i class="text-xl fas fa-clipboard-list m-2"></i>
                 <div class="">
