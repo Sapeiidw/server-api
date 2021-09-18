@@ -37,8 +37,10 @@
                                     <i class="fas fa-hashtag"></i>
                                 </x-th>
                                 <x-th>
-                                    <i class="fas fa-user-tag mr-1"></i>
-                                    Role
+                                    <div>
+                                        <i class="sm:flex-none fas fa-user-tag mr-1 w-20"></i>
+                                        Role
+                                    </div>
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-id-badge mr-2"></i>
@@ -59,10 +61,12 @@
                                         <p class="dark:text-white text-gray-900 whitespace-no-wrap ml-3">{{ $loop->iteration + $roles->perPage() * ($roles->currentPage() -1 ) }}</p>
                                     </x-td>
                                     <x-td>
-                                        <p class="dark:text-white text-gray-900 whitespace-no-wrap ml-3">{{ $item->name }}</p>
+                                        <div class="w-1/5">
+                                            <p class="flex-none dark:text-white text-gray-900 whitespace-no-wrap ml-3 ">{{ $item->name }}</p>
+                                        </div>
                                     </x-td>
                                     <x-td>
-                                        <div class=" dark:bg-gray-700 ml-3">
+                                        <div class="dark:bg-gray-700 ml-3 w-2/3">
                                             @foreach ($item->permissions as $permission)
                                             <x-badge>{{ $permission->name }}</x-badge>
                                         @endforeach
