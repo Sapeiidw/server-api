@@ -20,6 +20,7 @@ class PermissionSeeder extends Seeder
             'permission',
             'client',
             'log',
+            'domain',
         ];
         foreach ($permission as $key => $value) {
             Permission::insert([

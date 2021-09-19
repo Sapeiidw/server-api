@@ -127,6 +127,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         Storage::delete($user->foto_profile);
+        Activity::where('causer_id','=',$user->id)->delete();
         $user->delete();
         return back()->with('success','Selamat user berhasil di hapus!!');
     }
