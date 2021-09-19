@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Rules\DomainCheck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -57,7 +58,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => "required|string",
-            'email' => "required|email|unique:users",
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', new DomainCheck],
             'password' => "required|min:8|confirmed",
         ]);
         $request->role = $request->role !== null ? $request->role : 'user';
@@ -104,7 +105,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => "required|string",
-            'email' => "required|email|unique:users,email,".$user->id,
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id, new DomainCheck],
+            // "required|email|unique:users,email,".$user->id,
         ]);
         $request->role = $request->role !== null ? $request->role : $user->roles->first()->name;
 

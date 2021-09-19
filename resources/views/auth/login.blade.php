@@ -54,3 +54,11 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
+{{ $domains = App\Models\Domain::get('name')->pluck('name'); }}
+{{-- {{ $domains->search('student.itk.ac.id'); }} --}}
+@if (is_numeric($domains->search('itk.ac.id')))
+    ada 
+@else
+    nope
+@endif
