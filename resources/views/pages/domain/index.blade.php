@@ -37,7 +37,7 @@
                                     <i class="fas fa-hashtag"></i>
                                 </x-th>
                                 <x-th>
-                                    <i class="fas fa-id-badge mr-1"></i>
+                                    <i class="fas fa-address-book mr-1"></i>
                                     Domain
                                 </x-th>
                                 @can('update-domain','delete-domain')
