@@ -8,9 +8,6 @@
         </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 py-8">
-
-                <x-alert></x-alert>
-
                 <form action="{{ route('domain.update', $domain->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')

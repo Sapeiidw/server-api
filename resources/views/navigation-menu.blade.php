@@ -14,7 +14,7 @@
                         @role("super-admin|admin")
                         <!-- Navigation Links -->
                         <div class="hidden h-9 space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*','log.*','client.*')">
+                            <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('user.index') }}" :active="request()->routeIs('admin.*','user.*','permission.*','role.*','log.*','client.*','domain.*')">
                                 {{ __('Admin') }}
                             </x-jet-nav-link>
                             <x-jet-nav-link class=" lg:text-base font-medium dark:text-white" href="{{ route('dokumentasi') }}" :active="request()->routeIs('dokumentasi')">
@@ -95,7 +95,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1 ">
-            <x-jet-responsive-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.*','permission.*','role.*')">
+            <x-jet-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin.*','user.*','permission.*','role.*','client.*','domain.*','log.*')">
                 {{ __('Admin') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('dokumentasi') }}" :active="request()->routeIs('dokumentasi')">

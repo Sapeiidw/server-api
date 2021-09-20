@@ -7,10 +7,7 @@
             </h2>
         </x-slot>
         <x-boxtable>
-            <div class="mx-auto px-4 sm:px-8 py-8">
-
-                <x-alert></x-alert>
-
+            <div class="mx-auto px-4 sm:px-8 pb-8 pt-4">
                 <form action="{{ route('client.update', $client->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')

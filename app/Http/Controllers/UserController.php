@@ -67,7 +67,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ])->syncRoles($request->role);
         activity()->by(auth()->user())->withProperties($user)->log('This user has been created a user');
-        return back()->with('success','Selamat user berhasil di buat!!');
+        return back()->with('success','User Telah Dibuat!!');
     }
 
     /**
@@ -114,7 +114,7 @@ class UserController extends Controller
         ]);
         $user->syncRoles($request->role);
 
-        return back()->with('success','Selamat user berhasil di edit!!');
+        return back()->with('success','User Telah Diperbarui!!');
     }
 
     /**
@@ -126,6 +126,6 @@ class UserController extends Controller
     {
         Storage::delete($user->foto_profile);
         $user->delete();
-        return back()->with('success','Selamat user berhasil di hapus!!');
+        return back()->with('success','User Telah Diperbarui!!');
     }
 }

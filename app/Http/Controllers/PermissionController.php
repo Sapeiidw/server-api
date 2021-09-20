@@ -52,7 +52,7 @@ class PermissionController extends Controller
             'name' => 'required|string|unique:permissions',
         ]);
         Permission::create(['name'=> $request->name]);
-        return back()->with('success','Permission was Created!!');
+        return back()->with('success','Permission Telah Dibuat!!');
     }
 
     /**
@@ -96,7 +96,7 @@ class PermissionController extends Controller
             'name' => $request->name,
         ]);
 
-       return back()->with('success','Permission was Updated!!');
+       return back()->with('success','Permission Telah Diperbarui!!');
 
     }
 
@@ -110,6 +110,6 @@ class PermissionController extends Controller
     {
         $permission = Permission::find($id);
         $permission->delete();
-        return back()->with('success','Permission was Deleted!!');
+        return back()->with('success','Permission Telah Dihapus!!');
     }
 }

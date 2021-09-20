@@ -56,7 +56,7 @@ class RoleController extends Controller
         ]);
         $role = Role::create(['name'=> $request->name]);
 
-        return back()->with('success','Role was created!!!');
+        return back()->with('success','Role Telah Dibuat!!!');
     }
 
     /**
@@ -103,7 +103,7 @@ class RoleController extends Controller
             'name' => $request->name,
         ]);
         $role->syncPermissions($request->permissions);
-        return back()->with('success','Role was Updated!!');
+        return back()->with('success','Role Telah Diperbarui!!');
     }
 
     /**
@@ -115,6 +115,6 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        return back()->with('success','Role was deleted');
+        return back()->with('success','Role Telah Dihapus');
     }
 }

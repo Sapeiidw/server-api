@@ -8,7 +8,6 @@
         </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 py-8">
-                <x-alert />
                 <form action="{{ route('user.update', $user->id) }}" method="post">
                     @csrf
                     @method('put')

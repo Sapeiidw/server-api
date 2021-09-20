@@ -52,7 +52,7 @@ class DomainController extends Controller
             'name' => 'required|string|unique:domains',
         ]);
         Domain::create(['name'=> $request->name]);
-        return back()->with('success','Domain was Created!!');
+        return back()->with('success','Domain Telah Dibuat!!');
     }
 
     /**
@@ -94,7 +94,7 @@ class DomainController extends Controller
             'name' => $request->name,
         ]);
 
-       return back()->with('success','Domain was Updated!!');
+       return back()->with('success','Domain Telah Diperbaharui!!');
     }
 
     /**
@@ -106,6 +106,6 @@ class DomainController extends Controller
     public function destroy(Domain $domain)
     {
         $domain->delete();
-        return back()->with('success','Domain was Deleted!!');
+        return back()->with('success','Domain Telah Dihapus!!');
     }
 }

@@ -45,6 +45,6 @@ class LogController extends Controller
     {
         $log = Activity::find($id);
         $log->delete();
-        return back()->with('success','log was Deleted!!');
+        return back()->with('success','Log Telah Dihapus!!');
     }
 }

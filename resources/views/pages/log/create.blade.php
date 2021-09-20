@@ -7,10 +7,7 @@
             </h2>
         </x-slot>
         <x-boxtable>
-            <div class="mx-auto px-4 sm:px-8 py-8">
-
-                <x-alert></x-alert>
-
+            <div class="mx-auto px-2 sm:px-8 py-8">
                 <form enctype="multipart/form-data" method="POST" action="{{ route('client.store') }}">
                     @csrf
                     <div class="mt-4">

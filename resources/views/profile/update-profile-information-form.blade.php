@@ -1,11 +1,11 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        <x-text value="{{ __('Profile Information') }}"/>
+        <x-text value="{{ __('Informasi Profil') }}"/>
     </x-slot>
 
     <x-slot name="description">
         <div class="px-2 text-gray-600 dark:text-white">
-            <x-text value="{{ __('Update your accounts profile information and email address.') }}"/>
+            <x-text value="{{ __('Perbarui informasi profil akun dan alamat email Anda.') }}"/>
         </div>
     </x-slot>
 
@@ -26,7 +26,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
+                <x-jet-label for="photo" value="{{ __('Foto') }}" />
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
@@ -41,12 +41,12 @@
                 </div>
 
                 <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
+                    {{ __('Pilih Foto Baru') }}
                 </x-jet-secondary-button>
 
                 @if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
+                        {{ __('Hapus Foto') }}
                     </x-jet-secondary-button>
                 @endif
 
@@ -56,7 +56,7 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4 dark:text-white">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
+            <x-jet-label for="name" value="{{ __('Nama') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
@@ -71,11 +71,11 @@
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
+            {{ __('Tersimpan.') }}
         </x-jet-action-message>
 
         <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
+            {{ __('Simpan') }}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
