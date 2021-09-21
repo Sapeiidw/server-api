@@ -7,7 +7,7 @@
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center dark:text-white">
                         <a href="{{ route('home') }}">
-                            <x-jet-application-mark class="block h-28 w-auto" />
+                            <x-jet-application-mark class="block h-20  w-auto" />
                         </a>
                     </div>
                     <div class="flex w-auto items-center">
