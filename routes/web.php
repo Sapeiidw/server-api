@@ -40,3 +40,8 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('domain', DomainController::class);
     Route::resource('log', LogController::class)->only(['index','destroy','show']);
 });
+
+// handle logout url
+Route::get('logout', function () {
+    return abort(404);
+});
