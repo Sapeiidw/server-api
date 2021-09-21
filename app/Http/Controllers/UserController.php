@@ -30,7 +30,7 @@ class UserController extends Controller
         activity()
         ->performedOn(new User())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited user page.');
+        ->log(':causer.name mengunjungi halaman user.');
         $users = User::with('roles')
                 ->where('name','like',"%{$request->search}%")
                 ->paginate(20);
@@ -67,8 +67,8 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ])->syncRoles($request->role);
-        activity()->by(auth()->user())->withProperties($user)->log('This user has been created a user');
-        return back()->with('success','Selamat user berhasil di buat!!');
+        activity()->by(auth()->user())->withProperties($user)->log('Pengguna ini telah menambahkan user');
+        return back()->with('success','User Telah Dibuat!!');
     }
 
     /**
@@ -116,7 +116,7 @@ class UserController extends Controller
         ]);
         $user->syncRoles($request->role);
 
-        return back()->with('success','Selamat user berhasil di edit!!');
+        return back()->with('success','User Telah Diperbarui!!');
     }
 
     /**
@@ -129,6 +129,6 @@ class UserController extends Controller
         Storage::delete($user->foto_profile);
         Activity::where('causer_id','=',$user->id)->delete();
         $user->delete();
-        return back()->with('success','Selamat user berhasil di hapus!!');
+        return back()->with('success','User Telah Diperbarui!!');
     }
 }

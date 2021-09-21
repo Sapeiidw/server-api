@@ -8,13 +8,10 @@
         </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 py-8">
-
-                <x-alert></x-alert>
-
                 <form method="POST" action="{{ route('domain.store') }}">
                     @csrf
                     <div class="mt-4">
-                        <x-jet-input placeholder="Name"
+                        <x-jet-input placeholder="Contoh : student.itk.ac.id"
                         class="block w-full border rounded-3xl dark:text-white dark:bg-gray-700 dark:border-gray-900 bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                         type="text" name="name" :value="old('name')"/>
                         @error('name')
@@ -24,7 +21,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                         <x-jet-button class="modal-open ml-4 ">
-                            {{ __('Create') }}
+                            {{ __('Tambahkan') }}
                         </x-jet-button>
                     </div>
                 </form>

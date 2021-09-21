@@ -32,18 +32,18 @@
                     <x-jet-checkbox id="remember_me" name="remember" />
 
                 </label>
-                <x-text value="{{ __('Remember me') }}"/>
+                <x-text value="{{ __('Ingat saya') }}"/>
             </div>
 
             <div class="flex items-center justify-between mt-4">
                 <div class="flex flex-col">
                     @if (Route::has('password.request'))
                 <a class="underline text-sm dark:text-red-500 text-red-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('lupa kata sandi Anda?') }}
                 </a>
                 @endif
-                <a class=" flex-row underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                    <x-text value="{{ __('Dont have an account? Register') }}"/>
+                <a class=" flex-row underline text-sm dark:text-white text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                    {{ __('Tidak punya akun? Daftar') }}
                 </a>
                 </div>
 

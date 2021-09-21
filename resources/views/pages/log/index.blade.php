@@ -7,7 +7,7 @@
         </h2>
     </x-slot>
     <x-boxtable>
-        <div class="flex justify-between sm:flex-row flex-col py-4 px-2">
+        <div class="flex justify-between sm:flex-row flex-col pb-4 px-2">
             <div class="flex relative dark:text-white w-full">
                 <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                     <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
@@ -32,24 +32,24 @@
                             </x-th>
                             <x-th>
                                 <i class="fas fa-cogs mr-1"></i>
-                                Log Name
+                                Nama Log
                             </x-th>
                             <x-th>
                                 <i class="fas fa-user mr-1"></i>
-                                Causer
+                                Pengguna
                             </x-th>
                             <x-th>
                                 <i class="fas fa-file-alt mr-1"></i>
-                                Description
+                                Deskripsi
                             </x-th>
                             <x-th>
                                 <i class="fas fa-calendar-day mr-1"></i>
-                                Date
+                                Waktu
                             </x-th>
                             @can('read-log','delete-log')
                             <x-th>
                                 <i class="fas fa-edit mr-1"></i>
-                                Action
+                                Tindakan
                             </x-th>
                             @endcan
                         </x-tr>
@@ -87,7 +87,7 @@
                                         <a href="{{ route('log.show', $item->id) }}"
                                             class="dark:text-blue-500 text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye mx-2"></i>
-                                            View
+                                            Lihat
                                         </a>
                                         @endcan
                                         @can('delete-log')
@@ -98,7 +98,7 @@
                                         class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                             onclick="return confirm('are you sure?!')">
                                             <i class="fas fa-trash-alt mx-2"></i>
-                                            Delete
+                                            Hapus
                                         </button>
                                         </form>
                                         @endcan

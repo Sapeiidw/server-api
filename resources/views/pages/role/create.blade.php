@@ -8,9 +8,6 @@
         </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 py-8">
-
-                <x-alert></x-alert>
-
                 <form method="POST" action="{{ route('role.store') }}">
                     @csrf
 
@@ -24,7 +21,7 @@
 
                     <div class="flex  items-center justify-end mt-4">
                         <x-jet-button class="ml-4">
-                            {{ __('Create') }}
+                            {{ __('Tambahkan') }}
                         </x-jet-button>
                     </div>
                 </form>

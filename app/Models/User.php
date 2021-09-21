@@ -12,6 +12,8 @@ use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
+use App\Notifications\CustomResetPassword;
+use App\Notifications\CustomVerifyEmail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -67,8 +69,20 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getDescriptionForEvent(string $eventName): string
     {
-        return "This user has been {$eventName}";
+        return "Pengguna ini telah melakukan {$eventName} user";
     }
     protected static $logAttributes = ['name', 'email', 'password',];
     protected static $logOnlyDirty = true;
+
+    public function sendPasswordResetNotification($token)
+    {
+    $this->notify(new CustomResetPassword($token));
+
+    }
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new CustomVerifyEmail);
+    }
+
 }

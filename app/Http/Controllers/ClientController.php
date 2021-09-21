@@ -27,7 +27,7 @@ class ClientController extends Controller
         activity()
         ->performedOn(new Client())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited client page.');
+        ->log(':causer.name mengunjungi halaman client.');
 
         if(auth()->user()->roles->first()->name == 'super-admin'){
             $clients = Client::where('name','like',"%{$request->search}%")->paginate(20);
@@ -82,7 +82,7 @@ class ClientController extends Controller
             "revoked" => false,
             ]);
 
-        return redirect(route('client.show',$client->id))->with('success','Client was Created!!');
+        return redirect(route('client.show',$client->id))->with('success','Client Telah Dibuat!!');
     }
 
     /**
@@ -155,7 +155,7 @@ class ClientController extends Controller
                 'visibility' => $request->visibility,
             ]);
     
-           return back()->with('success','Client was Updated!!');
+           return back()->with('success','Client Telah Diperbarui!!');
         } else {
             abort(403);
         }
@@ -172,7 +172,7 @@ class ClientController extends Controller
         if(auth()->user()->roles->first()->name == 'super-admin' or auth()->user()->id == $client->user_id){
             Storage::delete($client->thumbnail);
             $client->delete();
-            return redirect(route('client.index'))->with('success','Client was Deleted!!');
+            return redirect(route('client.index'))->with('success','Client Telah Dihapus!!');
         } else {
             abort(403);
         }

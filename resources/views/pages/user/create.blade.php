@@ -7,8 +7,7 @@
             </h2>
         </x-slot>
         <x-boxtable>
-            <div class="mx-auto px-4 sm:px-8 py-8">
-                <x-alert />
+            <div class="mx-auto px-4 sm:px-8 pt-2 pb-8">
                 <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-4">
@@ -70,7 +69,7 @@
                     </div>
                     @endrole
                     <div class="flex mt-4 justify-end items-center">
-                        <x-jet-button type="submit">Create</x-jet-button>
+                        <x-jet-button type="submit">Tambahkan</x-jet-button>
                     </div>
                 </form>
             </div>

@@ -1,13 +1,8 @@
 <x-admin-layout>
     @section('title', 'User')
     <div class="w-4/5">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('User') }}
-            </h2>
-        </x-slot>
         <x-boxtable>
-            <div class="flex justify-between sm:flex-row flex-col py-4 px-2">
+            <div class="flex justify-between sm:flex-row flex-col pb-4 px-2">
                 <div class="flex relative dark:text-white sm:w-3/4">
                     <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                         <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current dark:text-white text-gray-500">
@@ -23,19 +18,19 @@
                 </div>
                 @can('create-user')
                 <x-jet-button>
-                    <a href="{{ route('user.create') }}" >Add User</a>
+                    <a href="{{ route('user.create') }}" >Tambah User</a>
                 </x-jet-button>
                 @endcan
 
             </div>
-            <div class="mx-auto pt-4 overflow-x-auto">
+            <div class="mx-auto overflow-x-auto">
                 <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full rounded-2xl overflow-hidden">
                     <table class="min-w-full leading-normal ">
                         <thead>
                             <x-tr >
                                 <x-th >
                                     <i class="fas fa-user mr-1"></i>
-                                    Name
+                                    Nama
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-envelope mr-1"></i>
@@ -43,11 +38,11 @@
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-folder-plus mr-1"></i>
-                                    Created at
+                                    Dibuat pada
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-user-check mr-1"></i>
-                                    Verified
+                                    Terverifikasi
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-user-tag mr-1"></i>
@@ -56,7 +51,7 @@
                                 @can('read-user','update-user','delete-user')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
-                                    Action
+                                    Tindakan
                                 </x-th>
                                 @endcan
                             </x-tr>
@@ -103,7 +98,7 @@
                                 <x-td>
                                     <div class="flex sm:flex-row flex-col w-1/6 justify-between ml-2">
                                         @can('read-user')
-                                        <a href="{{ route('user.show',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-eye mx-2"></i></i>View</a>
+                                        <a href="{{ route('user.show',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-eye mx-2"></i></i>Lihat</a>
                                         @endcan
                                         @can('update-user')
                                         <a href="{{ route('user.edit',$item->id) }}" class="dark:text-blue-500 text-blue-800 flex flex-row items-center"><i class="fas fa-pen mx-2"></i>Edit</a>
@@ -112,7 +107,7 @@
                                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" onclick="return confirm('Are u Sure!!')" class="dark:text-red-500 text-red-900 flex flex-row items-center"><i class="fas fa-trash-alt mx-2"></i>Delete</button>
+                                            <button type="submit" onclick="return confirm('Are u Sure!!')" class="dark:text-red-500 text-red-900 flex flex-row items-center"><i class="fas fa-trash-alt mx-2"></i>Hapus</button>
                                         </form>
                                         @endcan
                                     </div>
@@ -121,7 +116,7 @@
                             </x-tr>
                             @empty
                             <x-tr>
-                                Data gak ada boss
+                                Data tidak tersedia
                                 </x-tr>
                             @endforelse
                         </tbody>

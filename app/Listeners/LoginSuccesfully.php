@@ -28,6 +28,6 @@ class LoginSuccesfully
     {
         activity()
         ->by($event->user)
-        ->log('login successfully');
+        ->log('Login Berhasil');
     }
 }

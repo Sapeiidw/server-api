@@ -1,12 +1,12 @@
 <x-jet-action-section>
     <div class="dark:bg-gray-800 m-4 bg-red-600">
         <x-slot name="title">
-            <x-title  value="{{ __('Two Factor Authentication') }}"/>
+            <x-title  value="{{ __('Otentikasi Dua Faktor') }}"/>
         </x-slot>
 
         <x-slot name="description">
             <div class="px-2 text-gray-600">
-                <x-text value="{{ __('Add additional security to your account using two factor authentication.') }}"/>
+                <x-text value="{{ __('Tambahkan keamanan tambahan ke akun Anda menggunakan otentikasi dua faktor.') }}"/>
             </div>
         </x-slot>
     </div>
@@ -14,20 +14,20 @@
     <x-slot name="content">
         <h3 class="text-lg font-medium text-gray-900">
             @if ($this->enabled)
-                <x-title value="{{ __('You have enabled two factor authentication.') }}"/>
+                <x-title value="{{ __('Anda telah mengaktifkan otentikasi dua faktor.') }}"/>
             @else
-                <x-title  value="{{ __('You have not enabled two factor authentication.') }}"/>
+                <x-title  value="{{ __('Anda belum mengaktifkan otentikasi dua faktor.') }}"/>
             @endif
         </h3>
 
-        <div class="mt-3 max-w-xl text-sm text-gray-600">
-            <x-text for="" value="{{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}"/>
+        <div class="mt-3 w-full text-sm text-gray-600">
+            <x-text for="" value="{{ __('Saat otentikasi dua faktor diaktifkan, Anda akan dimintai token acak yang aman selama otentikasi. Anda dapat mengambil token ini dari aplikasi Google Authenticator ponsel Anda.') }}"/>
         </div>
 
         @if ($this->enabled)
             @if ($showingQrCode)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
-                    <x-jet-label  value="{{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application.') }}"/>
+                    <x-jet-label  value="{{ __('Otentikasi dua faktor sekarang diaktifkan. Pindai kode QR berikut menggunakan aplikasi autentikator ponsel Anda.') }}"/>
                 </div>
 
                 <div class="mt-4">
@@ -37,7 +37,7 @@
 
             @if ($showingRecoveryCodes)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
-                    <x-jet-label   value="{{ __('Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.') }}"/>
+                    <x-jet-label   value="{{ __('Simpan kode pemulihan ini di pengelola kata sandi yang aman. Mereka dapat digunakan untuk memulihkan akses ke akun Anda jika perangkat otentikasi dua faktor Anda hilang.') }}"/>
                 </div>
 
                 <div class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
@@ -48,7 +48,7 @@
             @endif
         @endif
 
-        <div class="flex justify-end mt-5">
+        <div class="flex justify-end mt-6">
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
                     <x-jet-button type="button" wire:loading.attr="disabled">

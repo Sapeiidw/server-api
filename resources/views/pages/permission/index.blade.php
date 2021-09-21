@@ -7,8 +7,8 @@
             </h2>
         </x-slot>
         <x-boxtable>
-            <div class="flex justify-between sm:flex-row flex-col py-4 px-2">
-                <div class="flex relative dark:text-white sm:w-3/4">
+            <div class="flex justify-between sm:flex-row flex-col pb-4 px-2">
+                <div class="flex relative dark:text-white md:w-3/4 sm:w-3/4">
                     <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                         <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
                             <path
@@ -23,7 +23,7 @@
                 </div>
                 @can('create-permission')
                 <x-jet-button>
-                    <a href="{{ route('permission.create') }}" >Add Permission</a>
+                    <a href="{{ route('permission.create') }}" class="flex-none" >Tambah Permission</a>
                 </x-jet-button>
                 @endcan
 
@@ -43,7 +43,7 @@
                                 @can('update-permission','delete-permission')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
-                                    Action
+                                    Tindakan
                                 </x-th>
                                 @endcan
                             </x-tr>
@@ -77,7 +77,7 @@
                                             class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                                 onclick="return confirm('are you sure?!')">
                                                 <i class="fas fa-trash-alt mx-2"></i>
-                                                Delete
+                                                Hapus
                                             </button>
                                             </form>
                                             @endcan

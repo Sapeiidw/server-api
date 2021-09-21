@@ -26,7 +26,7 @@ class RoleController extends Controller
         activity()
         ->performedOn(new Role())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited role page.');
+        ->log(':causer.name mengunjungi halaman role.');
         $roles = Role::with('permissions')
             ->where('name','like',"%{$request->search}%")
             ->paginate(20);
@@ -56,7 +56,7 @@ class RoleController extends Controller
         ]);
         $role = Role::create(['name'=> $request->name]);
 
-        return back()->with('success','Role was created!!!');
+        return back()->with('success','Role Telah Dibuat!!!');
     }
 
     /**
@@ -103,7 +103,7 @@ class RoleController extends Controller
             'name' => $request->name,
         ]);
         $role->syncPermissions($request->permissions);
-        return back()->with('success','Role was Updated!!');
+        return back()->with('success','Role Telah Diperbarui!!');
     }
 
     /**
@@ -115,6 +115,6 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        return back()->with('success','Role was deleted');
+        return back()->with('success','Role Telah Dihapus');
     }
 }

@@ -1,13 +1,8 @@
 <x-admin-layout>
     @section('title', 'User')
     <div class="w-4/5">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('User') }}
-            </h2>
-        </x-slot>
         <x-boxtable>
-            <div class="dark:bg-gray-700 dark:text-white bg-white md:flex justify-between items-center m-1 mt-2 p-2 rounded-2xl overflow-y-hidden">
+            <div class="dark:bg-gray-700 dark:text-white bg-white md:flex justify-between items-center mx-3 mb-2 p-2 rounded-2xl overflow-y-hidden">
                 <div class="md:w-1/3 m-3 flex items-center">
                     <div class="flex-shrink-0">
                         <img class="dark:bg-gray-700 rounded-full h-24 w-24 object-cover"
@@ -29,11 +24,11 @@
                 </div>
                 <div class="flex-none xl:w-1/3 ml-3">
                     <div class="flex items-center">
-                        Create at :
+                        Dibuat Pada :
                         {{ $user->created_at }}
                     </div>
                     <div class="flex items-center mt-6">
-                        Verified :
+                        Terverifikasi :
                         @if ($user->email_verified_at)
                             <i class="fas fa-check ml-7"></i>
                         @else
@@ -49,20 +44,20 @@
                         <thead>
                             <x-tr>
                                 <x-th>
-                                    <i class="fas fa-user mr-1"></i>
-                                    Log Name
+                                    <i class="fas fa-cogs mr-1"></i>
+                                    Nama Log
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-envelope mr-1"></i>
-                                    description
+                                    Deskripsi
                                 </x-th>
                                 <x-th>
-                                    <i class="fas fa-folder-plus mr-1"></i>
-                                    Causer
+                                    <i class="fas fa-user mr-1"></i>
+                                    Pengguna
                                 </x-th>
                                 <x-th>
                                     <i class="fas fa-user-check mr-1"></i>
-                                    Properties
+                                    Properti
                                 </x-th>
                             </x-tr>
                         </thead>
@@ -92,13 +87,13 @@
                             </x-tr>
                             @empty
                                 <div class="m-3">
-                                    Tidak Ada Activity
+                                    Tidak Ada Aktivitas
                                 </div>
                             @endforelse
                         </tbody>
                     </table>
                     <div
-                        class="px-5 py-5 dark:bg-gray-700 dark:text-white bg-white flex flex-col xs:flex-row items-center xs:justify-between          ">
+                        class="px-5 py-5 dark:bg-gray-700 dark:text-white bg-white flex flex-col xs:flex-row items-center xs:justify-between">
                         {{ $activity->links() }}
                     </div>
                 </div>

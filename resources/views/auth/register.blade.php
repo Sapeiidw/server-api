@@ -45,11 +45,11 @@
 
             <div class="flex items-center justify-between pl-1 mt-4">
                 <a class="underline text-sm dark:text-white dark:hover-gray-600 text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Sudah terdaftar?') }}
                 </a>
 
                 <x-jet-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Daftar') }}
                 </x-jet-button>
             </div>
         </form>
