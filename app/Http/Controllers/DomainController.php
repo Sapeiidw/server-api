@@ -25,7 +25,7 @@ class DomainController extends Controller
         activity()
         ->performedOn(new Domain())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited domain page.');
+        ->log(':causer.name mengunjungi halaman domain.');
         $domains = Domain::where('name','like',"%{$request->search}%")->paginate(20);
         return view('pages.domain.index', compact('domains'));
     }

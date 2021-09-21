@@ -27,7 +27,7 @@ class ClientController extends Controller
         activity()
         ->performedOn(new Client())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited client page.');
+        ->log(':causer.name mengunjungi halaman client.');
 
         if(auth()->user()->roles->first()->name == 'super-admin'){
             $clients = Client::where('name','like',"%{$request->search}%")->paginate(20);

@@ -29,7 +29,7 @@ class UserController extends Controller
         activity()
         ->performedOn(new User())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited user page.');
+        ->log(':causer.name mengunjungi halaman user.');
         $users = User::with('roles')
                 ->where('name','like',"%{$request->search}%")
                 ->paginate(20);
@@ -66,7 +66,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ])->syncRoles($request->role);
-        activity()->by(auth()->user())->withProperties($user)->log('This user has been created a user');
+        activity()->by(auth()->user())->withProperties($user)->log('Pengguna ini telah menambahkan user');
         return back()->with('success','User Telah Dibuat!!');
     }
 

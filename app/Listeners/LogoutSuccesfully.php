@@ -28,6 +28,6 @@ class LogoutSuccesfully
     {
         activity()
         ->by(auth()->user())
-        ->log('logout successfully');
+        ->log('Logout Berhasil');
     }
 }

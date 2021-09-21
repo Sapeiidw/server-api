@@ -2,7 +2,7 @@
     @section('title', 'Log')
     <div class="w-4/5">
         <x-boxtable>
-            <div class="dark:bg-gray-700 bg-white m-2 px-4 sm:px-8 py-8 rounded-2xl">
+            <div class="dark:bg-gray-700 bg-white mx-3 mb-2 px-4 sm:px-8 py-8 rounded-2xl">
                 <div class="2xl:flex justify-between items-center m-1 mt-2 p-2 rounded-2xl overflow-y-hidden">
                     <div class="md:w-1/3 flex items-center">
                         <div class="flex-shrink-0">
@@ -25,11 +25,11 @@
                     </div>
                     <div class="flex-none w-1/3 ml-3 mt-1">
                         <div class="flex items-center">
-                            Create at:
+                            Dibuat Pada:
                             {{ $log->causer->created_at }}
                         </div>
                         <div class="flex items-center 2xl:mt-7 mt-1">
-                            Verified:
+                            Terverifikasi:
                             @if ($log->causer->email_verified_at)
                                 <i class="fas fa-check ml-7"></i>
                             @else
@@ -42,19 +42,19 @@
             </div>
             <x-jet-section-border />
             <div class="flex ml-5 items-center justify-start">
-                Log Name : {{ $log->log_name }}
+                Nama Log : {{ $log->log_name }}
             </div>
             <x-jet-section-border />
             <div class="flex ml-5 items-center justify-start">
-                Description : {{ $log->description }}
+                Deskripsi : {{ $log->description }}
             </div>
             <x-jet-section-border />
             <div class="flex ml-5 items-center justify-start">
-                Properties : {{ $log->properties }}
+                Properti : {{ $log->properties }}
             </div>
             <x-jet-section-border />
             <div class="flex ml-5 items-center justify-start">
-                Created at : {{ $log->created_at }}
+                Dibuat Pada : {{ $log->created_at }}
             </div>
             <x-jet-section-border />
         </x-boxtable>

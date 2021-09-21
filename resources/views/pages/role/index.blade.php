@@ -24,11 +24,11 @@
                 </div>
                 @can('create-role')
                 <x-jet-button>
-                    <a href="{{ route('role.create') }}" >Add Role</a>
+                    <a href="{{ route('role.create') }}" >Tambah Role</a>
                 </x-jet-button>
                 @endcan
             </div>
-            <div class="pt-4 mx-auto overflow-x-auto">
+            <div class="mx-auto overflow-x-auto">
                 <div class="inline-block dark:text-white dark:border-gray-800 border min-w-full rounded-2xl overflow-hidden">
                     <table class="min-w-full leading-normal">
                         <thead>
@@ -51,7 +51,7 @@
                                 @can('update-role','delete-role')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
-                                    Action
+                                    Tindakan
                                 </x-th>
                                 @endcan
                             </x-tr>
@@ -89,7 +89,7 @@
                                             class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                                 onclick="return confirm('are you sure?!')">
                                                 <i class="fas fa-trash-alt mx-2"></i>
-                                                Delete
+                                                Hapus
                                             </button>
                                             @endcan
                                             </form>

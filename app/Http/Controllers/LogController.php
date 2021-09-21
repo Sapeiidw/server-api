@@ -23,7 +23,7 @@ class LogController extends Controller
         activity()
         ->performedOn(new Activity())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited log page.');
+        ->log(':causer.name mengunjungi halaman log.');
         $logs = Activity::where('log_name','like',"%{$request->search}%")->orderBy('created_at', 'desc')->paginate(20);
         return view('pages.log.index', compact('logs'));
     }

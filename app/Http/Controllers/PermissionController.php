@@ -25,7 +25,7 @@ class PermissionController extends Controller
         activity()
         ->performedOn(new Permission())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited permission page.');
+        ->log(':causer.name mengunjungi halaman permission.');
         $permissions = Permission::where('name','like',"%{$request->search}%")->paginate(20);
         return view('pages.permission.index', compact('permissions'));
     }

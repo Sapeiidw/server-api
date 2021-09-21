@@ -23,7 +23,7 @@
             </div>
             @can('create-client')
             <x-jet-button>
-                <a href="{{ route('client.create') }}" >Add Client</a>
+                <a href="{{ route('client.create') }}" >Tambah Client</a>
             </x-jet-button>
             @endcan
         </div>
@@ -46,7 +46,7 @@
                             @can('read-client','update-client','delete-client')
                             <x-th>
                                 <i class="fas fa-edit mr-1"></i>
-                                Action
+                                Tindakan
                             </x-th>
                             @endcan
                         </x-tr>
@@ -82,7 +82,7 @@
                                         <a href="{{ route('client.show', $item->id) }}"
                                             class="dark:text-blue-500  text-blue-800 flex flex-row items-center">
                                             <i class="fas fa-eye mx-2"></i>
-                                            View
+                                            Lihat
                                         </a>
                                         @endcan
                                         @can('update-client')
@@ -100,7 +100,7 @@
                                         class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                             onclick="return confirm('are you sure?!')">
                                             <i class="fas fa-trash-alt mx-2"></i>
-                                            Delete
+                                            Hapus
                                         </button>
                                         </form>
                                         @endcan

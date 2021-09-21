@@ -67,7 +67,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getDescriptionForEvent(string $eventName): string
     {
-        return "This user has been {$eventName}";
+        return "Pengguna ini telah melakukan {$eventName} user";
     }
     protected static $logAttributes = ['name', 'email', 'password',];
     protected static $logOnlyDirty = true;

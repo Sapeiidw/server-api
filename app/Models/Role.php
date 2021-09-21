@@ -11,7 +11,7 @@ class Role extends ModelsRole
 
     public function getDescriptionForEvent(string $eventName): string
     {
-        return "This role has been {$eventName}";
+        return "Pengguna ini telah melakukan {$eventName} role";
     }
     protected static $logAttributes = ['name',];
     protected static $logOnlyDirty = true;

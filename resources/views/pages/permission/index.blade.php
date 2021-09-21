@@ -23,7 +23,7 @@
                 </div>
                 @can('create-permission')
                 <x-jet-button>
-                    <a href="{{ route('permission.create') }}" class="flex-none" >Add Permission</a>
+                    <a href="{{ route('permission.create') }}" class="flex-none" >Tambah Permission</a>
                 </x-jet-button>
                 @endcan
 
@@ -43,7 +43,7 @@
                                 @can('update-permission','delete-permission')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
-                                    Action
+                                    Tindakan
                                 </x-th>
                                 @endcan
                             </x-tr>
@@ -77,7 +77,7 @@
                                             class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                                 onclick="return confirm('are you sure?!')">
                                                 <i class="fas fa-trash-alt mx-2"></i>
-                                                Delete
+                                                Hapus
                                             </button>
                                             </form>
                                             @endcan

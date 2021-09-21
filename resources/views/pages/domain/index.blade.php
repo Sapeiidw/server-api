@@ -23,7 +23,7 @@
                 </div>
                 @can('create-domain')
                 <x-jet-button>
-                    <a href="{{ route('domain.create') }}" >Add Domain</a>
+                    <a href="{{ route('domain.create') }}" >Tambah Domain</a>
                 </x-jet-button>
                 @endcan
 
@@ -43,7 +43,7 @@
                                 @can('update-domain','delete-domain')
                                 <x-th>
                                     <i class="fas fa-edit mr-1"></i>
-                                    Action
+                                    Tindakan
                                 </x-th>
                                 @endcan
                             </x-tr>
@@ -77,7 +77,7 @@
                                             class="dark:text-red-500 text-red-900 flex flex-row items-center"
                                                 onclick="return confirm('are you sure?!')">
                                                 <i class="fas fa-trash-alt mx-2"></i>
-                                                Delete
+                                                Hapus
                                             </button>
                                             </form>
                                             @endcan

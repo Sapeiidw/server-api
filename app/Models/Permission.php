@@ -13,7 +13,7 @@ class Permission extends ModelsPermission
 
     public function getDescriptionForEvent(string $eventName): string
     {
-        return "This permission has been {$eventName}";
+        return "Pengguna ini telah melakukan {$eventName} permission";
     }
     protected static $logAttributes = ['name','guard_name'];
     protected static $logOnlyDirty = true;

@@ -13,7 +13,7 @@ class Domain extends Model
 
     public function getDescriptionForEvent(string $eventName): string
     {
-        return "This domain has been {$eventName}";
+        return "Pengguna ini telah melakukan {$eventName} domain";
     }
     protected static $logAttributes = ['name'];
     protected static $logOnlyDirty = true;

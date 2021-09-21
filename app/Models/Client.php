@@ -24,7 +24,7 @@ class Client extends PassportClient
 
     public function getDescriptionForEvent(string $eventName): string
     {
-        return "This client has been {$eventName}";
+        return "Pengguna ini telah melakukan {$eventName} client";
     }
     
     public $logAttributes = ['name', 'redirect','url','thumbnail'];

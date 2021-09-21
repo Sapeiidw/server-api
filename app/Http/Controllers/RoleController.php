@@ -26,7 +26,7 @@ class RoleController extends Controller
         activity()
         ->performedOn(new Role())
         ->causedBy(auth()->user())
-        ->log(':causer.name visited role page.');
+        ->log(':causer.name mengunjungi halaman role.');
         $roles = Role::with('permissions')
             ->where('name','like',"%{$request->search}%")
             ->paginate(20);

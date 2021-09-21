@@ -43,8 +43,8 @@
 
                     {{-- @endrole --}}
                     <div class="flex mt-4 items-center justify-end">
-                        <x-jet-button type="submit" class="">Update</x-jet-button>
-                        <x-jet-button type="reset" class="ml-2">Cancel</x-jet-button>
+                        <x-jet-button type="submit" class="">Perbarui</x-jet-button>
+                        <x-jet-button type="reset" class="ml-2">Reset</x-jet-button>
                     </div>
 
                 </form>
