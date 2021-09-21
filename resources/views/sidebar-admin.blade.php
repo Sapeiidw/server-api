@@ -1,6 +1,6 @@
 <aside class=" h-min-screen dark:bg-gray-800 dark:text-white dark:border-gray-700 md:max-w-1/5 w-1/5 lg:top-18 relative sm:shadow sm:rounded-t-2xl overflow-x-hidden sm:border sm:mt-2 sm:ml-2 bg-sidebar bg-white sm:block">
     <nav class="text-white text-base font-semibold overflow-x-hidden pt-3 ">
-        {{-- @can('read-user') --}}
+        @can('read-user')
         <div class="flex py-3 justify-between">
             <x-sidelink href="{{ route('user.index') }}" :active="request()->routeIs('user.*')">
                 <i class="text-xl fas fa-user m-2"></i>
@@ -9,7 +9,7 @@
                 </div>
             </x-sidelink>
         </div>
-        {{-- @endcan --}}
+        @endcan
         @can('read-role')
         <div class="flex py-3 justify-between" >
             <x-sidelink href="{{ route('role.index') }}" :active="request()->routeIs('role.*')">
