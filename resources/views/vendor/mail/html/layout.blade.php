@@ -32,7 +32,6 @@ width: 100% !important;
 <tr>
 <td align="center">
 <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-{{-- <x-jet-application-mark class="logo" /> --}}
 {{ $header ?? '' }}
 
 <!-- Email Body -->

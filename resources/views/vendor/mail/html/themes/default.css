@@ -98,7 +98,7 @@ img {
 
 .header {
     padding-top: 25px;
-    padding-bottom: 3px;
+    padding-bottom: 25px;
     text-align: center;
 }
 
@@ -112,9 +112,9 @@ img {
 /* Logo */
 
 .logo {
-    height: 110px;
-    /* max-height: 90px;
-    width: 90px; */
+    justify-items: center;
+    align-items: center;
+    height: 90px;
 }
 
 /* Body */
