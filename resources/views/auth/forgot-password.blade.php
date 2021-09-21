@@ -5,7 +5,7 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <div class="flex md:max-w-sm mb-10 text-sm text-gray-600">
+        <div class="flex md:max-w-sm mb-10 text-sm text-gray-600 text-justify">
             <x-text for="" value="{{ __('lupa kata sandi Anda? Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirimkan email kepada Anda tautan pengaturan ulang kata sandi yang memungkinkan Anda memilih yang baru.') }}"/>
         </div>
 

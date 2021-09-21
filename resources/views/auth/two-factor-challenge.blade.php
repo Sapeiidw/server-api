@@ -1,15 +1,16 @@
 <x-guest-layout>
+    @section('title', 'Email')
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
 
         <div x-data="{ recovery: false }">
-            <div class="mb-4 text-sm text-gray-600" x-show="! recovery">
+            <div class="mb-4 text-sm text-gray-600 text-justify" x-show="! recovery">
                 {{ __('Harap konfirmasikan akses ke akun Anda dengan memasukkan kode autentikasi yang disediakan oleh aplikasi autentikator Anda.') }}
             </div>
 
-            <div class="mb-4 text-sm text-gray-600" x-show="recovery">
+            <div class="mb-4 text-sm text-gray-600 text-justify" x-show="recovery">
                 {{ __('Harap konfirmasikan akses ke akun Anda dengan memasukkan salah satu kode pemulihan darurat Anda.') }}
             </div>
 
