@@ -10,7 +10,7 @@ class LogController extends Controller
     public function __construct()
     {
         $this->middleware('permission:read-log')->only('index','show');
-        $this->middleware('permission:delete-log')->only('delete');
+        $this->middleware('permission:delete-log')->only('destroy');
     }
 
     /**

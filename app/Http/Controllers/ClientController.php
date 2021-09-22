@@ -13,7 +13,7 @@ class ClientController extends Controller
     {
         $this->middleware('permission:read-client')->only('index','show');
         $this->middleware('permission:update-client')->only('edit','update');
-        $this->middleware('permission:delete-client')->only('delete');
+        $this->middleware('permission:delete-client')->only('destroy');
         $this->middleware('permission:create-client')->only('create','store');
     }
 

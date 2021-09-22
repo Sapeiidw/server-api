@@ -11,7 +11,7 @@ class DomainController extends Controller
     {
         $this->middleware('permission:read-domain')->only('index','show');
         $this->middleware('permission:update-domain')->only('edit','update');
-        $this->middleware('permission:delete-domain')->only('delete');
+        $this->middleware('permission:delete-domain')->only('destroy');
         $this->middleware('permission:create-domain')->only('create','store');
     }
 

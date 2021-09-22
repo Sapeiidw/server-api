@@ -73,10 +73,10 @@ class ManageRoleTest extends TestCase
         return $this->actingAs($user)->delete(route('role.destroy',$role->id));
     }
 
-    // public function test_can_delete_role_as_super_admin()
-    // {
-    //     $this->delete_role($this->super_admin)->assertStatus(302);
-    // }
+    public function test_can_delete_role_as_super_admin()
+    {
+        $this->delete_role($this->super_admin)->assertStatus(302);
+    }
     
     public function test_can_not_delete_role_because_not_as_super_admin()
     {
