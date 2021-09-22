@@ -12,7 +12,7 @@
                     @csrf
                     <div class="mt-4">
                         {{-- <x-jet-label for="email" value="Name" /> --}}
-                        <x-jet-input placeholder="Name"
+                        <x-jet-input placeholder="Nama"
                         class="block w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                         type="text" name="name" :value="old('name')"/>
                         @error('name')
@@ -48,7 +48,7 @@
                     <div class="mt-4">
                         {{-- <x-jet-label for="password_confirmation" :value="__('Confirm Password')" /> --}}
 
-                        <x-jet-input placeholder="Confirm Password" id="password_confirmation"
+                        <x-jet-input placeholder="Konfirmasi Password" id="password_confirmation"
                             class="block w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                             type="password"
                             name="password_confirmation" required />

@@ -38,6 +38,6 @@ class DomainCheck implements Rule
      */
     public function message()
     {
-        return 'Your email domain is not valid';
+        return 'Email Yang Anda Masukan Tidak Valid';
     }
 }

@@ -33,7 +33,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ])->syncRoles('user');
-        activity()->by($user)->withProperties($user)->log('This user has been created');
+        activity()->by($user)->withProperties($user)->log('Penguna ini Telah Membuat User');
 
         return $user;
     }

@@ -11,7 +11,7 @@
                 <form method="POST" action="{{ route('permission.store') }}">
                     @csrf
                     <div class="mt-4">
-                        <x-jet-input placeholder="Name"
+                        <x-jet-input placeholder="Nama Permission"
                         class="block w-full border rounded-3xl dark:text-white dark:bg-gray-700 dark:border-gray-900 bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                         type="text" name="name" :value="old('name')"/>
                         @error('name')
