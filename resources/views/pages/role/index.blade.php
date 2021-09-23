@@ -1,12 +1,6 @@
 <x-admin-layout>
     @section('title', 'Role')
     <div class="w-4/5 min-h-screen">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Role') }}
-            </h2>
-        </x-slot>
-
         <x-boxtable>
             <div class="flex justify-between md:flex-row flex-col pb-4 px-2">
                 <div class="flex relative dark:text-white md:w-3/4">

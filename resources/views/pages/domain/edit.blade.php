@@ -1,11 +1,6 @@
 <x-admin-layout>
     @section('title', 'Edit domain')
     <div class="w-4/5">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Domain > Create') }}
-            </h2>
-        </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 py-8">
                 <form action="{{ route('domain.update', $domain->id) }}" method="post" enctype="multipart/form-data">

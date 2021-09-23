@@ -1,11 +1,6 @@
 <x-admin-layout>
     @section('title', 'Edit Client')
     <div class="w-4/5">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Client > Edit') }}
-            </h2>
-        </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 pb-8 pt-4">
                 <form action="{{ route('client.update', $client->id) }}" method="post" enctype="multipart/form-data">

@@ -1,11 +1,6 @@
 <x-admin-layout>
     @section('title', 'Create Client')
     <div class="w-4/5">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Client > Create') }}
-            </h2>
-        </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 pt-2 pb-8">
                 <form enctype="multipart/form-data" method="POST" action="{{ route('client.store') }}">

@@ -1,11 +1,6 @@
 <x-admin-layout>
     @section('title', 'Permission')
     <div class="w-4/5">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Permission') }}
-            </h2>
-        </x-slot>
         <x-boxtable>
             <div class="flex justify-between sm:flex-row flex-col pb-4 px-2">
                 <div class="flex relative dark:text-white md:w-3/4 sm:w-3/4">

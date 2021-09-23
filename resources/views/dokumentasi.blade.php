@@ -1,10 +1,5 @@
 <x-app-layout>
     @section('title', 'Dokumentasi')
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dokumentasi') }}
-        </h2>
-    </x-slot>
     <div id="top" class="absolute top-0"></div>
     <a href="#top" class="w-14 h-14 flex justify-center items-center text-3xl rounded-full bg-blue-500 dark:bg-indigo-500 text-white fixed bottom-2 right-2"><i class="fa fa-angle-up"></i></a>
     <div class="py-12 flex flex-col lg:flex-row w-full">

@@ -1,17 +1,11 @@
 <x-admin-layout>
     @section('title', 'Create User')
     <div class="w-4/5">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('User > Create') }}
-            </h2>
-        </x-slot>
         <x-boxtable>
             <div class="mx-auto px-4 sm:px-8 pt-2 pb-8">
                 <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-4">
-                        {{-- <x-jet-label for="email" value="Name" /> --}}
                         <x-jet-input placeholder="Nama"
                         class="block w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                         type="text" name="name" :value="old('name')"/>
@@ -21,7 +15,6 @@
                     </div>
 
                     <div class="mt-4">
-                        {{-- <x-jet-label for="email" value="Email" /> --}}
                         <x-jet-input placeholder="Email"
                             class="block w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                             type="email" name="email" :value="old('email')" />
@@ -32,7 +25,6 @@
 
                     <!-- Password -->
                     <div class="mt-4">
-                        {{-- <x-jet-label for="password" :value="__('Password')" /> --}}
 
                         <x-jet-input placeholder="Password"  id="password"
                             class="block w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
@@ -46,8 +38,6 @@
 
                     <!-- Confirm Password -->
                     <div class="mt-4">
-                        {{-- <x-jet-label for="password_confirmation" :value="__('Confirm Password')" /> --}}
-
                         <x-jet-input placeholder="Konfirmasi Password" id="password_confirmation"
                             class="block w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                             type="password"
